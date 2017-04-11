@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:layout_width="400dip"
+    android:background="@color/back_150"
+    android:layout_height="200dip">
+
+    <TextView
+        android:id="@+id/txt_dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="45dip"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:textColor="@color/user_icon_default_white"
+        android:text="Take Off"/>
+
+    <TextView
+        android:id="@+id/dialog_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:textColor="@color/user_icon_default_white"
+        android:text="是否一切准备好？起飞？"/>
+
+    <Button
+        android:id="@+id/btn_main_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="确定"
+        android:textColor="@color/user_icon_default_white"
+        android:background="@color/green"/>
+
+    <Button
+        android:id="@+id/btn_main_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/activity_magin_25"
+        android:layout_toLeftOf="@+id/btn_main_ok"
+        android:layout_alignParentBottom="true"
+        android:text="取消"
+        android:textColor="@color/user_icon_default_white"
+        android:background="@color/green"/>
+</RelativeLayout>

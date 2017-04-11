@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_marginTop="@dimen/activity_magin_5"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dip"
+        android:layout_marginTop="@dimen/activity_magin_10">
+        <TextView
+            android:text="返航点设置"
+            android:textColor="@color/user_icon_default_white"
+            android:layout_alignParentLeft="true"
+            android:textSize="@dimen/txt_size_18"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/img_gohome_setting_peplo"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_magin_12"
+            android:background="@mipmap/leftmenu_homepoint_rc"/>
+
+        <ImageView
+            android:id="@+id/img_gohome_setting_drone"
+            android:layout_toLeftOf="@id/img_gohome_setting_peplo"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:padding="@dimen/activity_magin_10"
+            android:layout_margin="@dimen/activity_magin_12"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/leftmenu_homepoint_now"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:id="@+id/go_home_relative"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_width="match_parent"
+            android:layout_height="45dip">
+
+            <TextView
+                android:id="@+id/txt_setting_drone_hight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="返航高度"
+                android:textColor="@color/user_icon_default_white"
+                android:textSize="@dimen/txt_size_18" />
+
+            <TextView
+                android:id="@+id/txt_m"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="M"
+                android:textColor="@color/user_icon_default_white" />
+
+            <EditText
+                android:id="@+id/edit_setting_drone_gohome_hight"
+                android:layout_width="60dip"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="@dimen/activity_magin_3"
+                android:layout_toLeftOf="@id/txt_m"
+                android:background="@drawable/exit_bg"
+                android:inputType="number"
+                android:ems="3"
+                android:singleLine="true"
+                android:gravity="center"
+                android:padding="@dimen/activity_magin_5"
+                android:textColor="@color/Blue_700" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/activity_magin_3"
+                android:layout_toLeftOf="@id/edit_setting_drone_gohome_hight"
+                android:text="(20-500M)"
+                android:textColor="@color/user_icon_default_white" />
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/setting_linear_gohome"
+            android:layout_below="@id/go_home_relative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_margin="@dimen/activity_magin_10"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/setting_ui_flyc_fs_height" />
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/user_icon_default_white"
+                android:text="请调整高度将作用于失控返航及主动返航，飞行器将上升到当前设置的最低安全返航高度。"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:visibility="gone"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/txt_rela_switch"
+            android:text="允许切换飞行模式"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:textColor="@color/user_icon_default_white"
+            android:textSize="@dimen/txt_size_18" />
+
+        <com.fynn.switcher.Switch
+            android:id="@+id/switch_ios"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="@dimen/activity_magin_3"
+            android:layout_marginTop="@dimen/activity_magin_3"
+            android:layout_width="55dp"
+            android:layout_height="28dp"
+            app:checked="true"/>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/activity_magin_8"
+            android:id="@+id/setting_linear_switch"
+            android:layout_below="@id/txt_rela_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_margin="@dimen/activity_magin_10"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/setting_ui_flyc_mode_paf" />
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingMultiplier="1.5"
+                android:textColor="@color/user_icon_default_white"
+                android:text="P模式(定位) , 使用GPS或视觉定位系统实现精准悬停;\nA模式(姿态),不使用GPS和视觉定位系统,不能精准悬停;\nF模式(功能),和P模式类似,可使用只能飞行."
+                android:id="@+id/textView4" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</com.zhy.android.percent.support.PercentLinearLayout>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/relay_fly"
+            android:layout_width="match_parent"
+            android:layout_height="50dip"
+            android:layout_marginTop="@dimen/activity_magin_10">
+
+            <TextView
+                android:id="@+id/txt_rela_flying"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="新手模式"
+                android:textColor="@color/user_icon_default_white"
+                android:textSize="@dimen/txt_size_18" />
+
+            <com.fynn.switcher.Switch
+                android:id="@+id/fly_ios"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/activity_magin_3"
+                android:layout_marginTop="@dimen/activity_magin_3"
+                app:checked="false" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txt_new_fly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/relay_fly"
+            android:layout_marginTop="@dimen/activity_magin_10"
+            android:text="新手模式下，飞行器只能在返航点的30米半径范围内飞行，飞行器飞行速度将是显著变慢"
+            android:textColor="@color/user_icon_default_white" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_marginTop="@dimen/activity_magin_10">
+
+        <TextView
+            android:id="@+id/txt_rela_flying_hight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="最大高度限制"
+            android:textColor="@color/user_icon_default_white"
+            android:textSize="@dimen/txt_size_18" />
+
+        <EditText
+            android:id="@+id/edit_setting_fly_gohome_hight"
+            android:layout_width="60dip"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="@dimen/activity_magin_3"
+            android:background="@drawable/exit_bg"
+            android:gravity="center"
+            android:ems="3"
+            android:inputType="numberSigned"
+            android:singleLine="true"
+            android:padding="@dimen/activity_magin_5"
+            android:textColor="@color/Blue_700" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/activity_magin_3"
+            android:layout_toLeftOf="@id/edit_setting_fly_gohome_hight"
+            android:text="(20-500)"
+            android:textColor="@color/user_icon_default_white" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rela_dis"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_marginTop="@dimen/activity_magin_10">
+        <TextView
+            android:id="@+id/txt_rela_flying_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="距离限制"
+            android:textColor="@color/user_icon_default_white"
+            android:textSize="@dimen/txt_size_18" />
+
+        <com.fynn.switcher.Switch
+            android:id="@+id/distance_ios_fly"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/activity_magin_3"
+            android:layout_marginTop="@dimen/activity_magin_3"
+            app:checked="false" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rela_dis_number"
+        android:layout_marginTop="@dimen/activity_magin_8"
+        android:visibility="gone"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_below="@id/rela_dis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="限远"
+            android:textColor="@color/user_icon_default_white"
+            android:textSize="@dimen/txt_size_18" />
+
+        <EditText
+            android:id="@+id/edit_setting_fly_gohome_distance"
+            android:layout_width="60dip"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="@dimen/activity_magin_3"
+            android:background="@drawable/exit_bg"
+            android:inputType="numberSigned"
+            android:gravity="center"
+            android:padding="@dimen/activity_magin_5"
+            android:textColor="@color/Blue_700" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/activity_magin_3"
+            android:ems="4"
+            android:inputType="numberSigned"
+            android:singleLine="true"
+            android:layout_toLeftOf="@id/edit_setting_fly_gohome_distance"
+            android:text="(15-500)"
+            android:textColor="@color/user_icon_default_white" />
+    </RelativeLayout>
+</LinearLayout>

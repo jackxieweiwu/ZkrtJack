@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="50dip">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/img_zoom_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:borderWidth="0dp"
+        app:pressedTranslationZ="10dp"
+        android:layout_margin="@dimen/activity_magin_5"
+        app:rippleColor="#ff87ffeb"
+        app:elevation="6dp"
+        android:src="@mipmap/gs_map_widget_zoom_out"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/img_zoom_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:borderWidth="0dp"
+        app:pressedTranslationZ="10dp"
+        android:layout_margin="@dimen/activity_magin_5"
+        app:rippleColor="#ff87ffeb"
+        app:elevation="6dp"
+        android:src="@mipmap/gs_map_widget_zoom_in"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/img_earaser"
+        android:layout_width="wrap_content"
+        app:borderWidth="0dp"
+        app:pressedTranslationZ="10dp"
+        android:layout_margin="@dimen/activity_magin_5"
+        app:rippleColor="#ff87ffeb"
+        app:elevation="6dp"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/gs_map_widget_earaser_big"/>
+</LinearLayout>

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    android:id="@+id/popup_anima"
+    android:padding="10dip"
+    android:gravity="center"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="550dip"
+        android:layout_centerInParent="true"
+        android:background="@color/back_150"
+        android:padding="@dimen/activity_magin_10"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textColor="#3dd1a5"
+            android:text="环绕"
+            android:gravity="left|center_vertical"
+            android:textSize="18sp"
+            android:paddingLeft="15dp"/>
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#3dd1a5"
+            android:layout_below="@id/title"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
+
+        <RelativeLayout
+            android:id="@+id/mission_eala_latlng"
+            android:layout_width="match_parent"
+            android:layout_height="50dip"
+            android:paddingTop="15dp"
+            android:layout_below="@id/line">
+
+            <TextView
+                android:id="@+id/txt_lat_lng_title"
+                android:layout_alignParentTop="true"
+                android:layout_width="wrap_content"
+                android:textColor="@color/user_icon_default_white"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:text="坐标:"/>
+
+            <TextView
+                android:id="@+id/txt_hotpoint_mission_lat"
+                android:layout_toRightOf="@+id/txt_lat_lng_title"
+                android:paddingLeft="15dip"
+                android:layout_alignParentTop="true"
+                android:textColor="@color/user_icon_default_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="lat:24:124588456"/>
+
+            <TextView
+                android:layout_toRightOf="@+id/txt_hotpoint_mission_lat"
+                android:id="@+id/txt_hotpoint_mission_lng"
+                android:textColor="@color/user_icon_default_white"
+                android:paddingLeft="15dip"
+                android:layout_alignParentTop="true"
+                android:layout_below="@+id/txt_lat_lng_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="lng:24:124588456"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relay_hotpoin_mission_hight"
+            android:layout_below="@+id/mission_eala_latlng"
+            android:layout_width="match_parent"
+            android:paddingTop="14dip"
+            android:layout_height="50dip">
+
+            <TextView
+                android:id="@+id/txt_hight_mission"
+                android:layout_width="wrap_content"
+                android:paddingLeft="15dip"
+                android:textColor="@color/user_icon_default_white"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"
+                android:text="高度:"/>
+
+            <com.shawnlin.numberpicker.NumberPicker
+                android:id="@+id/number_hotpoint_relay_picker"
+                android:layout_width="350dip"
+                android:layout_toRightOf="@+id/txt_hight_mission"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"
+                app:np_width="160dip"
+                app:np_height="40dp"
+                app:np_orientation="horizontal"
+                app:np_dividerColor="@color/user_icon_default_white"
+                app:np_max="500"
+                app:np_min="15"
+                app:np_textColor="@color/user_icon_default_white"/>
+            <!--#3dd1a5-->
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rela_hotpin"
+            android:layout_width="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_below="@id/relay_hotpoin_mission_hight"
+            android:layout_height="50dip">
+
+            <TextView
+                android:id="@+id/txt_radius_title"
+                android:layout_alignParentTop="true"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/user_icon_default_white"
+                android:layout_height="match_parent"
+                android:paddingLeft="15dp"
+                android:text="环绕半径:"/>
+
+            <EditText
+                android:id="@+id/edit_radius_hotpoin"
+                android:layout_marginLeft="@dimen/activity_magin_5"
+                android:layout_width="100dip"
+                android:text="5"
+                android:textColor="@color/user_icon_default_white"
+                android:layout_toRightOf="@+id/txt_radius_title"
+                android:layout_height="50dip"
+                android:inputType="numberSigned"/>
+
+            <TextView
+                android:layout_alignParentTop="true"
+                android:layout_width="wrap_content"
+                android:layout_toRightOf="@+id/edit_radius_hotpoin"
+                android:gravity="center"
+                android:textColor="@color/user_icon_default_white"
+                android:layout_height="match_parent"
+                android:paddingLeft="15dp"
+                android:text="5-500m"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rela_hotpin_angular_speed"
+            android:layout_width="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_below="@id/rela_hotpin"
+            android:layout_height="50dip">
+
+            <TextView
+                android:id="@+id/txt_angular_title"
+                android:layout_alignParentTop="true"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/user_icon_default_white"
+                android:layout_height="match_parent"
+                android:paddingLeft="15dp"
+                android:text="角速度:"/>
+
+            <EditText
+                android:id="@+id/edit_angular_hotpoin"
+                android:layout_marginLeft="@dimen/activity_magin_5"
+                android:layout_width="100dip"
+                android:text="10"
+                android:textColor="@color/user_icon_default_white"
+                android:layout_toRightOf="@+id/txt_angular_title"
+                android:layout_height="50dip"
+                android:inputType="numberSigned"/>
+
+
+            <TextView
+                android:layout_centerInParent="true"
+                android:id="@+id/txt_clockwise_title"
+                android:layout_alignParentTop="true"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/user_icon_default_white"
+                android:layout_height="match_parent"
+                android:paddingLeft="15dp"
+                android:text="角速度:"/>
+
+            <RadioGroup
+                android:layout_centerVertical="true"
+                android:id="@+id/group_clockwise"
+                android:layout_toRightOf="@id/txt_clockwise_title"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_height="50dip">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:checked="true"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="顺时针"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/user_icon_default_white"
+                    android:layout_height="match_parent"
+                    android:text="逆时针"/>
+
+            </RadioGroup>
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/line2"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@id/rela_hotpin_angular_speed"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="#3dd1a5"
+            android:layout_marginTop="15dp"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/line2"
+            android:layout_alignParentRight="true"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/ok_hotpoint"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:padding="3dp"
+                android:layout_marginTop="@dimen/activity_magin_3"
+                android:textColor="#3dd1a5"
+                android:textSize="14sp"
+                android:layout_marginRight="15dp"
+                android:text="确定"/>
+
+            <TextView
+                android:id="@+id/cancel_hotpoint"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:padding="3dp"
+                android:textColor="@color/user_icon_default_white"
+                android:textSize="14sp"
+                android:layout_marginTop="@dimen/activity_magin_3"
+                android:singleLine="true"
+                android:layout_marginRight="15dp"
+                android:text="取消"/>
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

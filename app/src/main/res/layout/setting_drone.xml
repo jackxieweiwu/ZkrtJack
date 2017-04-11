@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:scrollbars="none"
+    android:padding="@dimen/activity_magin_10">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="@dimen/activity_magin_10"
+            android:layout_marginTop="@dimen/activity_magin_10"
+            android:text="基础设置"
+            android:textColor="@color/user_icon_default_white" />
+
+        <include
+            layout="@layout/setting_drone_gohome"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="@dimen/activity_magin_10"
+            android:layout_marginTop="@dimen/activity_magin_10"
+            android:text="飞行限制"
+            android:textColor="@color/user_icon_default_white" />
+
+        <include
+            layout="@layout/setting_drone_flying"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/activity_magin_10"
+            android:text="其他"
+            android:textColor="@color/user_icon_default_white" />
+
+        <include
+            layout="@layout/setting_drone_out_of_control"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/activity_magin_10"
+            android:orientation="horizontal"
+            android:layout_height="50dip">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/user_icon_default_white"
+                android:text="设置飞行速度:"/>
+            <SeekBar
+                android:id="@+id/speed_skeebar"
+                android:layout_width="match_parent"
+                android:max="15"
+                android:layout_weight="0.7"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txt_speedx"
+                android:gravity="center"
+                android:layout_width="60dip"
+                android:padding="@dimen/activity_magin_5"
+                android:text="15m/s"
+                android:textColor="@color/user_icon_default_white"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/activity_magin_10"
+            android:visibility="gone"
+            android:orientation="horizontal"
+            android:layout_height="50dip">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"
+                android:textColor="@color/user_icon_default_white"
+                android:text="是否记录数据:"/>
+
+            <com.fynn.switcher.Switch
+                android:id="@+id/switch_landing"
+                android:layout_width="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/activity_magin_10"
+            android:layout_width="wrap_content"
+            android:layout_height="50dip">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"
+                android:textColor="@color/user_icon_default_white"
+                android:text="是否避障:"/>
+
+            <com.fynn.switcher.Switch
+                android:id="@+id/switch_obstacle"
+                android:layout_width="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rela_obstacle"
+            android:layout_marginTop="@dimen/activity_magin_10"
+            android:visibility="visible"
+            android:layout_width="wrap_content"
+            android:layout_height="50dip">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"
+                android:textColor="@color/user_icon_default_white"
+                android:text="避障生效距离:"/>
+
+            <EditText
+                android:id="@+id/edit_setting_obstacle_distance"
+                android:layout_width="60dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="@dimen/activity_magin_3"
+                android:background="@drawable/exit_bg"
+                android:gravity="center"
+                android:ems="3"
+                android:inputType="numberSigned"
+                android:singleLine="true"
+                android:padding="@dimen/activity_magin_5"
+                android:textColor="@color/Blue_700" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rela_obstacle_speed"
+            android:layout_marginTop="@dimen/activity_magin_10"
+            android:visibility="visible"
+            android:layout_width="wrap_content"
+            android:layout_height="50dip">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"
+                android:textColor="@color/user_icon_default_white"
+                android:text="避障速度:"/>
+
+            <EditText
+                android:id="@+id/edit_setting_obstacle_speed"
+                android:layout_width="60dip"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/activity_magin_3"
+                android:background="@drawable/exit_bg"
+                android:gravity="center"
+                android:ems="3"
+                android:text="0"
+                android:inputType="numberDecimal"
+                android:singleLine="true"
+                android:padding="@dimen/activity_magin_5"
+                android:textColor="@color/Blue_700" />
+
+            <TextView
+                android:layout_toLeftOf="@+id/edit_setting_obstacle_speed"
+                android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/activity_magin_10"
+                android:textColor="@color/user_icon_default_white"
+                android:text="M/S"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/activity_magin_10"
+            android:layout_width="wrap_content"
+            android:layout_height="50dip">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"
+                android:textColor="@color/user_icon_default_white"
+                android:text="脚架自动收放:"/>
+
+            <com.fynn.switcher.Switch
+                android:id="@+id/switch_tripod"
+                android:layout_width="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/rela_obstacle_correct"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/activity_magin_10"
+            android:layout_width="wrap_content"
+            android:layout_height="50dip">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"
+                android:textColor="@color/user_icon_default_white"
+                android:text="脚架校准:"/>
+            <Button
+                android:id="@+id/btn_tripod_stop"
+                android:layout_width="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:text="停止"/>
+            <Button
+                android:id="@+id/btn_tripod_dowm"
+                android:layout_width="wrap_content"
+                android:layout_toLeftOf="@+id/btn_tripod_stop"
+                android:layout_marginRight="@dimen/activity_magin_10"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:text="降落"/>
+            <Button
+                android:id="@+id/btn_tripod_up"
+                android:layout_toLeftOf="@+id/btn_tripod_dowm"
+                android:layout_marginRight="@dimen/activity_magin_10"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:text="升起"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rela_obstacle_calibration"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/activity_magin_10"
+            android:layout_width="wrap_content"
+            android:layout_height="50dip">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"
+                android:textColor="@color/user_icon_default_white"
+                android:text="脚架收放:"/>
+
+            <com.fynn.switcher.Switch
+                android:id="@+id/switch_obstacle_setting_down"
+                android:layout_width="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

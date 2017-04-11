@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextureView
+        android:orientation="vertical"
+        android:id="@+id/texture_video_previewer_surface"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_height="match_parent">
+    </TextureView>
+
+   <!-- <SurfaceView
+        android:id="@+id/livestream_preview_sf"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:visibility="gone"/>-->
+
+    <LinearLayout
+        android:id="@+id/linear_temperature"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/camera_centerpoints6"/>
+
+        <TextView
+            android:id="@+id/txt_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@color/user_icon_default_white"
+            android:text="32.6"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_fpv_zoom"
+        android:visibility="gone"
+        android:background="@mipmap/camera_switch_meter"/>
+</RelativeLayout>

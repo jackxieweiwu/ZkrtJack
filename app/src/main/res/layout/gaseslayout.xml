@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear_gases"
+    android:orientation="vertical"
+    android:visibility="invisible"
+    android:layout_width="match_parent"
+    android:layout_margin="@dimen/activity_magin_10"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:textColor="@color/user_icon_default_white"
+        android:textSize="@dimen/txt_size_18"
+        android:layout_marginTop="@dimen/activity_magin_10"
+        android:text="请设置气体最低上限值"/>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/activity_magin_10"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="100dip"
+            android:layout_height="45dip"
+            android:gravity="center"
+            android:text="CO:"
+            android:textSize="@dimen/txt_size_18"
+            android:textColor="@color/user_icon_default_white"/>
+
+        <EditText
+            android:id="@+id/edit_co"
+            android:layout_marginLeft="@dimen/activity_magin_10"
+            android:layout_width="150dip"
+            android:layout_height="45dip"
+            android:background="@drawable/exit_bg"
+            android:textSize="@dimen/txt_size_18"
+            android:inputType="numberSigned"
+            android:ems="3"
+            android:text="0"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/activity_magin_10"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="100dip"
+            android:layout_height="45dip"
+            android:gravity="center"
+            android:text="H2S:"
+            android:textSize="@dimen/txt_size_18"
+            android:textColor="@color/user_icon_default_white"/>
+
+        <EditText
+            android:id="@+id/edit_h2s"
+            android:layout_marginLeft="@dimen/activity_magin_10"
+            android:layout_width="150dip"
+            android:layout_height="45dip"
+            android:background="@drawable/exit_bg"
+            android:textSize="@dimen/txt_size_18"
+            android:inputType="numberSigned"
+            android:ems="3"
+            android:text="0"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/activity_magin_10"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="100dip"
+            android:layout_height="45dip"
+            android:gravity="center"
+            android:text="NH3:"
+            android:textSize="@dimen/txt_size_18"
+            android:textColor="@color/user_icon_default_white"/>
+
+        <EditText
+            android:id="@+id/edit_nh3"
+            android:layout_marginLeft="@dimen/activity_magin_10"
+            android:layout_width="150dip"
+            android:layout_height="45dip"
+            android:background="@drawable/exit_bg"
+            android:textSize="@dimen/txt_size_18"
+            android:text="4"
+            android:inputType="numberSigned"
+            android:ems="3"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/activity_magin_10"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="100dip"
+            android:layout_height="45dip"
+            android:gravity="center"
+            android:text="CO2:"
+            android:textSize="@dimen/txt_size_18"
+            android:textColor="@color/user_icon_default_white"/>
+
+        <EditText
+            android:id="@+id/edit_co2"
+            android:layout_marginLeft="@dimen/activity_magin_10"
+            android:layout_width="150dip"
+            android:layout_height="45dip"
+            android:background="@drawable/exit_bg"
+            android:textSize="@dimen/txt_size_18"
+            android:inputType="numberSigned"
+            android:ems="3"
+            android:text="510"
+            android:gravity="center"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/activity_magin_10"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_clear"
+            android:background="@drawable/round_btn_normal"
+            android:text="取消"
+            android:layout_gravity="center"
+            android:textColor="@color/user_icon_default_white"
+            android:layout_width="100dip"
+            android:layout_height="50dip" />
+
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_marginLeft="20dip"
+            android:background="@drawable/round_btn_normal"
+            android:text="确定"
+            android:layout_gravity="center"
+            android:textColor="@color/user_icon_default_white"
+            android:layout_width="100dip"
+            android:layout_height="50dip" />
+    </LinearLayout>
+</LinearLayout>

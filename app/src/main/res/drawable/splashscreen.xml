@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item>
+        <bitmap android:src="@drawable/simtoo_bg"
+            android:tileMode="repeat"   android:bottom="50dip" android:top="50dip"
+            android:left="50dip" android:right="50dip" />
+        <!--android:tileMode="repeat"   android:bottom="50dip" android:top="50dip"
+        android:left="50dip" android:right="50dip"/>-->
+    </item>
+    <item >
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/logo" />
+    </item>
+</layer-list>

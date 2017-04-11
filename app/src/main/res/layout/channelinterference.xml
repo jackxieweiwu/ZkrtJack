@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_gravity="center"
+    android:layout_height="match_parent">
+
+    <com.zkrt.zkrtdrone.view.widget.HMySeelBar
+        android:id="@+id/seekar_list_route_item"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/txt_route_list_item"
+        android:layout_marginTop="@dimen/activity_magin_5"
+        android:layout_width="80dip"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/user_icon_default_white"
+        android:text="信道"/>
+</LinearLayout>

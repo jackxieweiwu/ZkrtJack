@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:scrollbars="none"
+    android:layout_width="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="@dimen/activity_magin_10"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/linear_setting_common"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/activity_magin_10"
+                android:orientation="horizontal"
+                android:layout_height="50dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="是否记录数据:"/>
+
+                <com.fynn.switcher.Switch
+                    android:id="@+id/switch_landing2"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rela_log"
+                android:layout_marginTop="@dimen/activity_magin_10"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="45dip">
+                <ImageView
+                    android:id="@+id/img_rz_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:background="@mipmap/arrow_left_white"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/activity_magin_10"
+                    android:layout_toRightOf="@id/img_rz_left"
+                    android:textSize="@dimen/txt_size_18"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="日志文件"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:background="@mipmap/arrow_right_white"/>
+            </RelativeLayout>
+
+            <com.zkrt.zkrtdrone.view.widget.ListViewForScrollView
+                android:id="@+id/lista"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="260dip"/>
+
+            <com.zkrt.zkrtdrone.view.widget.ListViewForScrollView
+                android:id="@+id/lista2"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="260dip"/>
+
+            <LinearLayout
+                android:id="@+id/linear_imu_compass"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_marginTop="@dimen/activity_magin_10"
+                    android:background="@color/gary"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/activity_magin_10"
+                    android:orientation="horizontal"
+                    android:layout_height="45dip">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/user_icon_default_white"
+                        android:textSize="@dimen/txt_size_18"
+                        android:text="IMU数量:"/>
+
+                    <TextView
+                        android:id="@+id/txt_imunumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:layout_marginLeft="@dimen/activity_magin_5"
+                        android:textColor="@color/user_icon_default_white"
+                        android:textSize="@dimen/txt_size_18"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/activity_magin_10"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+
+
+
+                    <TableLayout
+                        android:layout_weight="0.5"
+                        android:stretchColumns="0"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content">
+
+                        <TableRow >
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:gravity="center"
+                                android:layout_height="45dip"
+                                android:textSize="@dimen/txt_size_18"
+                                android:textColor="@color/user_icon_default_white"
+                                android:text="加速度计"/>
+                        </TableRow>
+
+                        <TableRow>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="45dip"
+                                android:gravity="center"
+                                android:textColor="@color/user_icon_default_gray"
+                                android:text="零偏"/>
+                        </TableRow>
+
+                        <TableRow>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:orientation="horizontal"
+                                android:gravity="center"
+                                android:layout_height="45dip">
+                                <ImageView
+                                    android:id="@+id/img_accelerometer1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@mipmap/fpv_gimbal_pitch_middle_thumb"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/user_icon_default_white"
+                                    android:text="ACC0"/>
+
+                                <TextView
+                                    android:id="@+id/txt_accelerometer1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="@dimen/activity_magin_10"
+                                    android:textColor="@color/user_icon_default_white"
+                                    android:text="0.01"/>
+
+                                <com.zkrt.zkrtdrone.view.widget.MySeekBar
+                                    android:id="@+id/progress_accelerometer1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="10dp"
+                                    android:thumb="@null"
+                                    android:max="100"
+                                    android:progressDrawable="@drawable/skeerbar"
+                                    android:progress="20"
+                                    android:layout_marginTop="@dimen/activity_magin_10"
+                                    android:layout_marginBottom="@dimen/activity_magin_10"
+                                    android:layout_marginLeft="@dimen/activity_magin_5"
+                                    android:layout_marginRight="@dimen/activity_magin_10"/>
+                            </LinearLayout>
+                        </TableRow>
+
+                        <TableRow>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:orientation="horizontal"
+                                android:gravity="center"
+                                android:layout_height="45dip">
+
+                                <ImageView
+                                    android:id="@+id/img_accelerometer2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:visibility="invisible"
+                                    android:background="@mipmap/fpv_gimbal_pitch_middle_thumb"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/user_icon_default_white"
+                                    android:text="ACC1"/>
+
+                                <TextView
+                                    android:id="@+id/txt_accelerometer2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="@dimen/activity_magin_10"
+                                    android:textColor="@color/user_icon_default_white"
+                                    android:text="0.01"/>
+
+                                <com.zkrt.zkrtdrone.view.widget.MySeekBar
+                                    android:id="@+id/progress_accelerometer2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="10dp"
+                                    android:thumb="@null"
+                                    android:max="100"
+                                    android:progressDrawable="@drawable/skeerbar"
+                                    android:progress="20"
+                                    android:layout_marginTop="@dimen/activity_magin_10"
+                                    android:layout_marginBottom="@dimen/activity_magin_10"
+                                    android:layout_marginLeft="@dimen/activity_magin_5"
+                                    android:layout_marginRight="@dimen/activity_magin_10"/>
+                            </LinearLayout>
+                        </TableRow>
+
+                    </TableLayout>
+
+                    <TableLayout
+                        android:layout_weight="0.5"
+                        android:stretchColumns="0"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content">
+                        <TableRow>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:gravity="center"
+                                android:layout_height="45dip"
+                                android:textSize="@dimen/txt_size_18"
+                                android:textColor="@color/user_icon_default_white"
+                                android:text="陀螺仪"/>
+                        </TableRow>
+
+                        <TableRow >
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:gravity="center"
+                                android:layout_height="45dip"
+                                android:textColor="@color/user_icon_default_gray"
+                                android:text="零偏"/>
+                        </TableRow>
+
+                        <TableRow>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:orientation="horizontal"
+                                android:gravity="center"
+                                android:layout_height="45dip">
+                                <ImageView
+                                    android:id="@+id/img_gyroscope1"
+                                    android:layout_width="wrap_content"
+                                    android:visibility="invisible"
+                                    android:layout_height="wrap_content"
+                                    android:background="@mipmap/fpv_gimbal_pitch_middle_thumb"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/user_icon_default_white"
+                                    android:text="GYRO0"/>
+
+                                <TextView
+                                    android:id="@+id/txt_gyroscope1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="@dimen/activity_magin_10"
+                                    android:textColor="@color/user_icon_default_white"
+                                    android:text="0.01"/>
+
+                                <com.zkrt.zkrtdrone.view.widget.MySeekBar
+                                    android:id="@+id/progress_gyroscope1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="10dp"
+                                    android:thumb="@null"
+                                    android:max="100"
+                                    android:progressDrawable="@drawable/skeerbar"
+                                    android:progress="20"
+                                    android:layout_marginTop="@dimen/activity_magin_10"
+                                    android:layout_marginBottom="@dimen/activity_magin_10"
+                                    android:layout_marginLeft="@dimen/activity_magin_5"
+                                    android:layout_marginRight="@dimen/activity_magin_10"/>
+                            </LinearLayout>
+                        </TableRow>
+
+                        <TableRow>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:orientation="horizontal"
+                                android:gravity="center"
+                                android:layout_height="45dip">
+
+                                <ImageView
+                                    android:id="@+id/img_gyroscope2"
+                                    android:layout_width="wrap_content"
+                                    android:visibility="invisible"
+                                    android:layout_height="wrap_content"
+                                    android:background="@mipmap/fpv_gimbal_pitch_middle_thumb"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/user_icon_default_white"
+                                    android:text="GYRO1"/>
+
+                                <TextView
+                                    android:id="@+id/txt_gyroscope2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="@dimen/activity_magin_10"
+                                    android:textColor="@color/user_icon_default_white"
+                                    android:text="0.01"/>
+
+                                <com.zkrt.zkrtdrone.view.widget.MySeekBar
+                                    android:id="@+id/progress_gyroscope2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="10dp"
+                                    android:thumb="@null"
+                                    android:max="100"
+                                    android:progressDrawable="@drawable/skeerbar"
+                                    android:progress="20"
+                                    android:layout_marginTop="@dimen/activity_magin_10"
+                                    android:layout_marginBottom="@dimen/activity_magin_10"
+                                    android:layout_marginLeft="@dimen/activity_magin_5"
+                                    android:layout_marginRight="@dimen/activity_magin_10"/>
+                            </LinearLayout>
+                        </TableRow>
+                    </TableLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txt_btn_Calibrate_imu"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dip"
+                    android:textColor="@color/aaa"
+                    android:layout_marginTop="@dimen/activity_magin_10"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_size_18"
+                    android:text="校准IMU"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_marginTop="@dimen/activity_magin_10"
+                    android:background="@color/gary"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_magin_20"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="指南针"
+                    android:textSize="@dimen/txt_size_18"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_height="45dip">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/user_icon_default_white"
+                        android:text="指南针状态:"
+                        android:textSize="@dimen/txt_size_18"/>
+
+                    <TextView
+                        android:id="@+id/txt_commpos_status"
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="@dimen/activity_magin_10"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/user_icon_default_white"
+                        android:text="正常"
+                        android:textSize="@dimen/txt_size_18"/>
+                </LinearLayout>
+
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/activity_magin_10"
+                    android:stretchColumns="0"
+                    android:layout_height="wrap_content">
+
+                    <TableRow>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:gravity="center"
+                            android:layout_height="45dip"
+                            android:textSize="@dimen/txt_size_18"
+                            android:textColor="@color/user_icon_default_white"
+                            android:text="干扰量"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:layout_height="45dip">
+
+                            <ImageView
+                                android:id="@+id/img_compass1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@mipmap/fpv_gimbal_pitch_middle_thumb"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/user_icon_default_white"
+                                android:text="指南针1"/>
+
+                            <TextView
+                                android:id="@+id/txt_compass1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/activity_magin_10"
+                                android:textColor="@color/user_icon_default_white"
+                                android:text="0.01"/>
+
+                            <com.zkrt.zkrtdrone.view.widget.MySeekBar
+                                android:id="@+id/progress_compass1"
+                                android:layout_width="match_parent"
+                                android:layout_height="10dp"
+                                android:thumb="@null"
+                                android:max="100"
+                                android:progressDrawable="@drawable/skeerbar"
+                                android:progress="20"
+                                android:layout_marginTop="@dimen/activity_magin_10"
+                                android:layout_marginBottom="@dimen/activity_magin_10"
+                                android:layout_marginLeft="@dimen/activity_magin_5"
+                                android:layout_marginRight="@dimen/activity_magin_10"/>
+                        </LinearLayout>
+                    </TableRow>
+
+                    <TableRow>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:layout_height="45dip">
+
+                            <ImageView
+                                android:id="@+id/img_compass2"
+                                android:layout_width="wrap_content"
+                                android:visibility="invisible"
+                                android:layout_height="wrap_content"
+                                android:background="@mipmap/fpv_gimbal_pitch_middle_thumb"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/user_icon_default_white"
+                                android:text="指南针2"/>
+
+                            <TextView
+                                android:id="@+id/txt_compass2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/activity_magin_10"
+                                android:textColor="@color/user_icon_default_white"
+                                android:text="0.01"/>
+
+                            <com.zkrt.zkrtdrone.view.widget.MySeekBar
+                                android:id="@+id/progress_compass2"
+                                android:layout_width="match_parent"
+                                android:layout_height="10dp"
+                                android:thumb="@null"
+                                android:max="100"
+                                android:progressDrawable="@drawable/skeerbar"
+                                android:progress="20"
+                                android:layout_marginTop="@dimen/activity_magin_10"
+                                android:layout_marginBottom="@dimen/activity_magin_10"
+                                android:layout_marginLeft="@dimen/activity_magin_5"
+                                android:layout_marginRight="@dimen/activity_magin_10"/>
+                        </LinearLayout>
+                    </TableRow>
+                </TableLayout>
+
+                <TextView
+                    android:id="@+id/txt_btn_Calibrate_compass"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dip"
+                    android:textColor="@color/aaa"
+                    android:layout_marginTop="@dimen/activity_magin_10"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_size_18"
+                    android:text="校准指南针"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/img_nowData"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/fpv_gimbal_pitch_middle_thumb"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/user_icon_default_white"
+                        android:text="当前使用"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_margin="@dimen/activity_magin_10"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/light_green"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/user_icon_default_white"
+                        android:text="优"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/activity_magin_10"
+                        android:background="@mipmap/light_yellow"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/user_icon_default_white"
+                        android:text="良"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_margin="@dimen/activity_magin_10"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/light_deep_red"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/user_icon_default_white"
+                        android:text="差"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_marginTop="@dimen/activity_magin_20"
+                    android:background="@color/gary"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_magin_20"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="@dimen/txt_size_18"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="云台"/>
+
+                <TextView
+                    android:id="@+id/txt_holder_reset2"
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.5"
+                    android:textColor="@color/aaa"
+                    android:gravity="center"
+                    android:text="重置所有参数"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_height="45dip" />
+
+                <TextView
+                    android:id="@+id/txt_holder_correct2"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/aaa"
+                    android:text="云台自动校准"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_height="45dip" />
+
+                <TextView
+                    android:id="@+id/txt_holder_correct3"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/aaa"
+                    android:text="重置万向节"
+                    android:textSize="@dimen/txt_size_18"
+                    android:layout_height="45dip" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dip"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_alignParentLeft="true"
+                        android:textColor="@color/user_icon_default_white"
+                        android:text="左上角驳轮动作:"/>
+
+                    <Button
+                        android:id="@+id/btn_bolun_hangx"
+                        android:layout_width="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:background="@color/green"
+                        android:textColor="@color/user_icon_default_white"
+                        android:layout_height="wrap_content"
+                        android:text="航向"/>
+
+                    <Button
+                        android:id="@+id/btn_bolun_roll"
+                        android:layout_toLeftOf="@id/btn_bolun_hangx"
+                        android:layout_marginRight="@dimen/activity_magin_5"
+                        android:background="@color/green"
+                        android:textColor="@color/user_icon_default_white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="横滚"/>
+
+                    <Button
+                        android:layout_toLeftOf="@+id/btn_bolun_roll"
+                        android:background="@color/green"
+                        android:layout_marginRight="@dimen/activity_magin_5"
+                        android:textColor="@color/user_icon_default_white"
+                        android:id="@+id/btn_bolun_pitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="俯仰"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

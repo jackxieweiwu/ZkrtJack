@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="500dip"
+    android:background="@color/mask_color"
+    android:gravity="center"
+    android:layout_height="600dip">
+
+    <ImageView
+        android:id="@+id/img_clean_commpos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_alignParentRight="true"
+        android:padding="@dimen/activity_magin_10"
+        android:layout_margin="@dimen/activity_magin_10"
+        android:background="@mipmap/flight_record_sync_settings_close"/>
+
+    <ImageView
+        android:id="@+id/img_imu_caommon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_centerInParent="true"
+        android:background="@mipmap/fpv_compass_m600_horizontal"/>
+
+    <TextView
+        android:id="@+id/txt_imu_common"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/img_imu_caommon"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_magin_20"
+        android:textColor="@color/user_icon_default_white"
+        android:text="@string/imu_string2"/>
+
+    <com.zkrt.zkrtdrone.view.widget.MySeekBar
+        android:id="@+id/time_contorl_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/activity_magin_20"
+        android:layout_marginRight="@dimen/activity_magin_20"
+        android:background="@color/user_icon_default_white"/>
+
+    <Button
+        android:id="@+id/btn_imu_start"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/activity_magin_20"
+        android:layout_marginRight="@dimen/activity_magin_20"
+        android:layout_alignParentBottom="true"
+        android:text="开始"
+        android:background="@color/aaa"
+        android:textColor="@color/user_icon_default_white"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="caozuo">操作</string>
+    <string name="opac">航点</string>
+    <string name="setting">设置</string>
+    <string name="photo_s">记录</string>
+    <string name="setting_drone_string">飞机</string>
+    <string name="setting_remote_string">遥控</string>
+    <string name="setting_camera_string">相机</string>
+    <string name="setting_battery_string">电池</string>
+    <string name="setting_holder_string">云台</string>
+    <string name="setting_common_string">通用</string>
+    <string name="setting_map_string">Map</string>
+
+    <string name="telephone">通话</string>
+    <string name="system">系统</string>
+    <string name="ringing">铃声</string>
+    <string name="music">音乐</string>
+    <string name="quarter_bell">闹铃</string>
+    <string name="inform">通知</string>
+
+    <string name="array_battery">电池</string>
+    <string name="array_announce">喊话</string>
+    <string name="array_jettisonin">抛投</string>
+    <string name="array_poisonous">有毒气体</string>
+    <string name="array_parachute">降落伞</string>
+    <string name="array_obstacle">避障</string>
+    <string name="array_temperature">避温</string>
+    <string name="array_infrared">双光红外</string>
+    <string name="array_dimensional_imaging">三维成像</string>
+    <string name="array_blastingflash">爆闪</string>
+    <string name="array_searchlight">探照灯</string>
+    <string name="array_camera">相机</string>
+    <string name="array_led">LED_W</string>
+
+    <string name="array_gohome">返航</string>
+    <string name="array_hover">悬停</string>
+    <string name="array_landing">降落</string>
+    <string name="array_hand">美国手</string>
+    <string name="array_china_hand">中国手</string>
+    <string name="array_japan_hand">日本手</string>
+
+    <string name="array_6s">6S</string>
+    <string name="array_12s">12S</string>
+
+    <string name="array_left">Left</string>
+    <string name="array_middle">Middle</string>
+
+    <string name="array_one">0</string>
+    <string name="array_two">1</string>
+    <string name="array_three">2</string>
+    <string name="array_four">3</string>
+    <string name="array_five">4</string>
+    <string name="array_six">5</string>
+
+    <string name="not_have">无</string>
+    <!--<string name="takeoff">起飞</string>
+    <string name="goto_speed">向前</string>-->
+    <!--<string name="retention">旋转</string>-->
+    <string name="start_taking">开始拍照</string>
+    <!--<string name="stop_taking">结束拍照</string>-->
+    <string name="start_video">开始录像</string>
+    <string name="stop_video">结束录像</string>
+    <string name="hotspot_circle">热点环绕</string>
+    <!--<string name="hotspot_retention">滞留</string>-->
+    <!--<string name="ready_ropling">准备抛投</string>-->
+    <!--<string name="gotohome">返航</string>-->
+    <string name="distance">距离</string>
+    <string name="stop_time">滞留</string>
+    <string name="rotate_drone">旋转</string>
+
+    <string name="Message_Waiting">请稍候...</string>
+    <string name="remote_dialog">请点击飞行器上的对频按钮进行对频\t\n 对频时间大约需要1分钟，请耐心等待，\t\n不要关闭飞行器电源！</string>
+    <string name="imu_string">请先拆卸螺旋桨\t\n请按照图示和说明进行校准，除了按照提示翻转飞机外请勿移动飞机\t\n保持飞行器电源开启，请勿启动电机</string>
+    <string name="imu_string2">保持飞行器平行状态，不可断电，不可移动，请静待....</string>
+
+    <string name="camera_modle0">双编码</string>
+    <string name="camera_modle1">单编码</string>
+
+    <string name="intput_modle_lb">LB</string>
+    <string name="intput_modle_EXT">EXT</string>
+    <string name="intput_modle_AV">AV</string>
+    <string name="intput_modle_HDMI">HDMI</string>
+
+    <string name="videointput_modle_lb">LB</string>
+    <string name="videointput_modle_EXT">EXT</string>
+    <string name="videointput_modle_piplb">PIP_LB</string>
+    <string name="videointput_modle_pipEXT">PIP_EXT</string>
+
+    <string name="videointput_modle_AV">AV</string>
+    <string name="videointput_modle_HDMI">HDMI</string>
+    <string name="videointput_modle_PIPAV">PIP_AV</string>
+    <string name="videointput_modle_PIPHDMI">PIP_HDMI</string>
+
+    <string name="camera_format_0">720P60FPS</string>
+    <string name="camera_format_1">720P50FPS</string>
+    <string name="camera_format_2">1080I60FPS</string>
+    <string name="camera_format_3">1080I50FPS</string>
+    <string name="camera_format_4">1080P60FPS</string>
+    <string name="camera_format_5">1080P50FPS</string>
+    <string name="camera_format_6">1080P30FPS</string>
+    <string name="camera_format_7">1080P24FPS</string>
+    <string name="camera_format_8">1080P25FPS</string>
+    <string name="camera_format_9">720P30FPS</string>
+    <string name="camera_format_10">720P25FPS(</string>
+    <string name="camera_format_11">720P24FPS</string>
+
+
+    <string name="holder_setting_1">Custom1</string>
+    <string name="holder_setting_2">Custom2</string>
+    <string name="holder_setting_3">Fast</string>
+    <string name="holder_setting_4">Medium</string>
+    <string name="holder_setting_5">Slow</string>
+    <string name="holder_setting_6">Unknown</string>
+
+    <string name="route_one">信道13</string>
+    <string name="route_two">信道14</string>
+    <string name="route_three">信道15</string>
+    <string name="route_four">信道16</string>
+    <string name="route_five">信道17</string>
+    <string name="route_sex">信道18</string>
+    <string name="route_seven">信道19</string>
+    <string name="route_eight">信道20</string>
+
+    <string name="camera_setting_moudle_photo">Camera</string>
+    <string name="camera_setting_moudle_video">Video</string>
+    <string name="camera_setting_moudle_setting">Setting</string>
+
+</resources>

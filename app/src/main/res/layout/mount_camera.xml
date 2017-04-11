@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/mount_camera_linear"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="300dip"
+    android:visibility="gone"
+    android:background="@drawable/camera_bg"
+    android:layout_height="240dip">
+
+    <com.triggertrap.seekarc.SeekArc
+        android:id="@+id/seekArcComplete"
+        android:layout_alignParentLeft="true"
+        android:layout_width="195dip"
+        android:layout_centerInParent="true"
+        android:padding="30dip"
+        android:layout_height="195dip"
+        app:enabled="true"
+        app:progress="50"
+        app:max="100"
+        app:arcWidth="8dp"
+        app:clockwise="true"
+        app:progressWidth="8dp"
+        app:rotation="90"
+        app:roundEdges="true"
+        app:startAngle="30"
+        app:sweepAngle="300"/>
+
+    <com.zkrt.zkrtdrone.view.widget.joystick.joystick
+        android:id="@+id/directionJoystickRight"
+        android:layout_width="190dip"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/activity_magin_3"
+        android:layout_height="190dip"
+        android:background="@android:color/transparent"
+        android:layout_gravity="center"/>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_marginRight="@dimen/activity_magin_5"
+        android:layout_toRightOf="@id/directionJoystickRight"
+        android:layout_marginLeft="@dimen/activity_magin_5"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btn_max"
+                android:layout_marginTop="@dimen/activity_magin_8"
+                android:layout_marginBottom="@dimen/activity_magin_8"
+                android:layout_width="wrap_content"
+                android:text="放大"
+                android:background="@drawable/moudl_bg"
+                android:textColor="@color/user_icon_default_white"
+
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btn_min"
+                android:layout_below="@id/btn_max"
+                android:background="@drawable/moudl_bg"
+                android:layout_marginBottom="@dimen/activity_magin_8"
+                android:textColor="@color/user_icon_default_white"
+                android:layout_width="wrap_content"
+                android:layout_toRightOf="@id/directionJoystickRight"
+                android:text="缩小"
+                android:layout_height="wrap_content" />
+
+
+            <Button
+                android:id="@+id/btn_take"
+                android:layout_below="@id/btn_min"
+                android:background="@drawable/moudl_bg"
+                android:layout_marginBottom="@dimen/activity_magin_8"
+                android:textColor="@color/user_icon_default_white"
+                android:layout_toRightOf="@id/directionJoystickRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="拍照"/>
+
+            <Button
+                android:id="@+id/btn_rec"
+                android:background="@drawable/moudl_bg"
+                android:textColor="@color/user_icon_default_white"
+                android:layout_below="@id/btn_take"
+                android:layout_marginBottom="@dimen/activity_magin_8"
+                android:layout_toRightOf="@id/directionJoystickRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="录像"/>
+
+            <Button
+                android:id="@+id/btn_qh"
+                android:layout_marginBottom="@dimen/activity_magin_8"
+                android:layout_width="wrap_content"
+                android:layout_below="@id/btn_rec"
+                android:text="红外切换"
+                android:background="@drawable/moudl_bg"
+                android:textColor="@color/user_icon_default_white"
+                android:layout_toRightOf="@id/directionJoystickRight"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btn_colorqh"
+                android:layout_marginBottom="@dimen/activity_magin_8"
+                android:layout_width="wrap_content"
+                android:layout_below="@id/btn_rec"
+                android:text="颜色切换"
+                android:background="@drawable/moudl_bg"
+                android:textColor="@color/user_icon_default_white"
+                android:layout_toRightOf="@id/directionJoystickRight"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btn_modleqh"
+                android:layout_marginBottom="@dimen/activity_magin_8"
+                android:layout_width="wrap_content"
+                android:layout_below="@id/btn_rec"
+                android:text="模式切换"
+                android:background="@drawable/moudl_bg"
+                android:textColor="@color/user_icon_default_white"
+                android:layout_toRightOf="@id/directionJoystickRight"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

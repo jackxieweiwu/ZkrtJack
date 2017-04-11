@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    tools:context="com.zkrt.zkrtdrone.view.layout.flash.FlashActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="10dip"
+        android:layout_marginRight="5dip"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/ftb_start"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:borderWidth="0dp"
+            app:pressedTranslationZ="10dp"
+            app:rippleColor="#ff87ffeb"
+            app:elevation="6dp"
+            android:layout_margin="@dimen/fab_margin"
+            app:layout_behavior="com.view.behavior.MyFabBehavior"
+            android:src="@drawable/ic_whilte_send"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/ftb_start2"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:borderWidth="0dp"
+            app:pressedTranslationZ="10dp"
+            app:rippleColor="#ff87ffeb"
+            app:elevation="6dp"
+            android:layout_margin="@dimen/fab_margin"
+            app:layout_behavior="com.view.behavior.MyFabBehavior"
+            android:src="@drawable/ic_leak_add_black_24dp"/>
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

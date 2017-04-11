@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/camera_mount_joy"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/model_camera_rela"
+        android:layout_width="150dip"
+        android:visibility="gone"
+        android:layout_height="150dip"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/camera_bg">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/activity_magin_10"
+            android:text="三维拍照"
+            android:textColor="@color/user_icon_default_white"/>
+
+        <com.fynn.switcher.Switch
+            android:id="@+id/model_camera_switch"
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <include
+        layout="@layout/mount_camera"/>
+</RelativeLayout>

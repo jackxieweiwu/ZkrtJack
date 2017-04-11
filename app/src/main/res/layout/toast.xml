@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_gravity="center"
+    android:padding="@dimen/activity_magin_10"
+    android:background="@drawable/bg"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/error_icon"
+        android:id="@+id/img_toast"/>
+
+    <TextView
+        android:text="卫星的信号质量很差"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/user_icon_default_white"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_toast"/>
+</LinearLayout>

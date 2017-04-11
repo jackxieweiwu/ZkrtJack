@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_gravity="center"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/img_camera_file_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@mipmap/ic_launcher"/>
+
+    <ImageView
+        android:id="@+id/img_camera_file_check"
+        android:layout_width="10dip"
+        android:layout_height="10dip"
+        android:layout_toRightOf="@+id/img_camera_file_dialog"
+        android:layout_marginRight="@dimen/activity_magin_8"
+        android:visibility="gone"
+        android:background="@mipmap/active_radio_normal"/>
+
+    <ImageView
+        android:id="@+id/img_camera_play"
+        android:layout_width="20dip"
+        android:layout_height="20dip"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:background="@mipmap/fpv_playback_center_operate"/>
+
+    <ProgressBar
+        android:id="@+id/progressbar_camera_file"
+        style="@android:style/Widget.ProgressBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:indeterminateDrawable="@anim/progress_round" />
+</RelativeLayout>

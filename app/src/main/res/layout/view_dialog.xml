@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:gravity="center"
+    android:layout_height="wrap_content"
+    android:padding="100dip"
+    android:layout_gravity="center"
+    android:background="@drawable/bg">
+
+    <com.zkrt.zkrtdrone.view.widget.CircularProgress
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:borderWidth="6dp"
+        android:layout_centerInParent="true"/>
+
+    <TextView
+        android:id="@+id/txt_name_progress"
+        android:text="上传中..."
+        android:layout_marginTop="@dimen/activity_magin_20"
+        android:textColor="@color/user_icon_default_white"
+        android:textSize="@dimen/txt_size_18"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

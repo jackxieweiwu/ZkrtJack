@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="stream_entries">
+        <item>@string/telephone</item>
+        <item>@string/system</item>
+        <item>@string/ringing</item>
+        <item>@string/music</item>
+        <item>@string/quarter_bell</item>
+        <item>@string/inform</item>
+    </string-array>
+    <string-array name="stream_values">
+        <item>@string/array_one</item>
+        <item>@string/array_two</item>
+        <item>@string/array_three</item>
+        <item>@string/array_four</item>
+        <item>@string/array_five</item>
+        <item>@string/array_six</item>
+    </string-array>
+
+    <string-array name="meses">
+        <item>@string/array_gohome</item>
+        <item>@string/array_hover</item>
+        <item>@string/array_landing</item>
+    </string-array>
+
+    <string-array name="route">
+        <item>@string/route_one</item>
+        <item>@string/route_two</item>
+        <item>@string/route_three</item>
+        <item>@string/route_four</item>
+        <item>@string/route_five</item>
+        <item>@string/route_sex</item>
+        <item>@string/route_seven</item>
+        <item>@string/route_eight</item>
+    </string-array>
+
+    <string-array name="holder_setting">
+        <item>@string/holder_setting_1</item>
+        <item>@string/holder_setting_2</item>
+        <item>@string/holder_setting_3</item>
+        <item>@string/holder_setting_4</item>
+        <item>@string/holder_setting_5</item>
+        <item>@string/holder_setting_6</item>
+    </string-array>
+
+    <string-array name="camera_framt">
+        <item>@string/camera_format_0</item>
+        <item>@string/camera_format_1</item>
+        <item>@string/camera_format_2</item>
+        <item>@string/camera_format_3</item>
+        <item>@string/camera_format_4</item>
+        <item>@string/camera_format_5</item>
+        <item>@string/camera_format_6</item>
+        <item>@string/camera_format_7</item>
+        <item>@string/camera_format_8</item>
+        <item>@string/camera_format_9</item>
+        <item>@string/camera_format_10</item>
+        <item>@string/camera_format_11</item>
+    </string-array>
+
+    <string-array name="camera_modle">
+        <item>@string/camera_modle0</item>
+        <item>@string/camera_modle1</item>
+    </string-array>
+
+    <string-array name="appintput_modle_LB">
+        <item>@string/intput_modle_lb</item>
+        <item>@string/intput_modle_EXT</item>
+    </string-array>
+
+    <string-array name="appintput_modle_AV">
+        <item>@string/intput_modle_HDMI</item>
+        <item>@string/intput_modle_AV</item>
+    </string-array>
+
+    <string-array name="videointput_modle_LB">
+        <item>@string/videointput_modle_lb</item>
+        <item>@string/videointput_modle_EXT</item>
+        <item>@string/videointput_modle_piplb</item>
+        <item>@string/videointput_modle_pipEXT</item>
+    </string-array>
+
+    <string-array name="videointput_modle_av">
+        <item>@string/videointput_modle_AV</item>
+        <item>@string/videointput_modle_HDMI</item>
+        <item>@string/videointput_modle_PIPAV</item>
+        <item>@string/videointput_modle_PIPHDMI</item>
+    </string-array>
+
+    <string-array name="battery_way">
+        <item>@string/array_gohome</item>
+        <item>@string/array_led</item>
+        <item>@string/array_landing</item>
+    </string-array>
+
+    <string-array name="battery_way2">
+        <item>@string/array_led</item>
+        <item>@string/array_landing</item>
+    </string-array>
+
+    <string-array name="battery_s">
+        <item>@string/array_6s</item>
+        <item>@string/array_12s</item>
+    </string-array>
+
+    <string-array name="mission_way">
+        <item>@string/not_have</item>
+        <!--<item>@string/takeoff</item>-->
+        <!--<item>@string/retention</item>-->
+        <item>@string/start_taking</item>
+        <!--<item>@string/stop_taking</item>-->
+        <item>@string/start_video</item>
+        <item>@string/stop_video</item>
+        <item>@string/stop_time</item>
+        <item>@string/rotate_drone</item>
+        <!--<item>@string/hotspot_circle</item>-->
+        <!--<item>@string/hotspot_retention</item>-->
+        <!--<item>@string/ready_ropling</item>
+        <item>@string/gotohome</item>-->
+    </string-array>
+
+    <string-array name="remote_setting">
+        <item>@string/array_hand</item>
+        <item>@string/array_china_hand</item>
+        <item>@string/array_japan_hand</item>
+    </string-array>
+
+    <string-array name="test">
+        <item>@string/array_left</item>
+        <item>@string/array_middle</item>
+    </string-array>
+
+    <string-array name="moudle_item">
+        <item>@string/array_battery</item>
+        <item>@string/array_announce</item>
+        <item>@string/array_jettisonin</item>
+        <item>@string/array_poisonous</item>
+        <item>@string/array_parachute</item>
+        <item>@string/array_obstacle</item>
+        <item>@string/array_temperature</item>
+        <item>@string/array_infrared</item>
+        <item>@string/array_dimensional_imaging</item>
+        <item>@string/array_blastingflash</item>
+        <item>@string/array_searchlight</item>
+        <item>@string/array_camera</item>
+    </string-array>
+
+    <array name="moudle_img">
+        <item>@mipmap/pic_battery_unling</item>
+        <item>@mipmap/pic_horn_unline</item>
+        <item>@mipmap/pic_toss_unline</item>
+        <item>@mipmap/pic_gas_unline</item>
+        <item>@mipmap/pic_parachute_unline</item>
+        <item>@mipmap/pic_tof_unline</item>
+        <item>@mipmap/pic_temperature_unline</item>
+        <item>@mipmap/pic_infrared_unline</item>
+        <item>@mipmap/pic_3d_unline</item>
+        <item>@mipmap/pic_multispectral_unline</item>
+        <item>@mipmap/pic_searchlight_unline</item>
+        <item>@mipmap/pic_radar_unline</item>
+    </array>
+
+    <string-array name="setting_item">
+        <item>@string/setting_drone_string</item>
+        <item>@string/setting_remote_string</item>
+        <item>@string/setting_camera_string</item>
+        <item>@string/setting_battery_string</item>
+        <!--<item>@string/setting_holder_string</item>-->
+        <item>@string/setting_common_string</item>
+        <item>@string/setting_map_string</item>
+    </string-array>
+
+    <array name="setting_camera_img">
+        <item>@mipmap/camera_photo_highlight</item>
+        <item>@mipmap/camera_video_highlight</item>
+        <!--<item>@mipmap/profile_edit_icon</item>-->
+    </array>
+
+    <string-array name="setting_camera_item">
+        <item>@string/camera_setting_moudle_photo</item>
+        <item>@string/camera_setting_moudle_video</item>
+        <item>@string/camera_setting_moudle_setting</item>
+    </string-array>
+
+    <array name="setting_img">
+        <item>@mipmap/setting_ui_root_btn_flyc_normal</item>
+        <item>@mipmap/setting_ui_root_btn_rc_normal</item>
+        <item>@mipmap/setting_ui_root_btn_hd_normal</item>
+        <item>@mipmap/setting_ui_root_btn_battery_normal</item>
+        <item>@mipmap/setting_ui_root_btn_gimbal_normal</item>
+        <item>@mipmap/setting_ui_root_btn_other_normal</item>
+    </array>
+</resources>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="@dimen/activity_magin_10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="视频尺寸"/>
+
+                <ImageView
+                    android:id="@+id/img_camera_mode_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/arrow_right"/>
+
+                <ImageView
+                    android:layout_toLeftOf="@+id/img_camera_mode_right"
+                    android:layout_marginRight="@dimen/activity_magin_10"
+                    android:layout_width="45dip"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/advanced_more_videoformat_3840x2160_30p"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="视频格式"/>
+
+                <ImageView
+                    android:id="@+id/img_camera_format_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/arrow_right"/>
+
+                <ImageView
+                    android:layout_toLeftOf="@+id/img_camera_format_right"
+                    android:layout_marginRight="@dimen/activity_magin_10"
+                    android:layout_width="45dip"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/advanced_more_videostoreformat_mov"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="NTSC/PAL选择"/>
+
+                <ImageView
+                    android:id="@+id/img_camera_ratio_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/arrow_right"/>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_toLeftOf="@+id/img_camera_ratio_right"
+                    android:layout_marginRight="@dimen/activity_magin_10"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_centerVertical="true"
+                        android:layout_width="45dip"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/advanced_more_videotype_ntsc"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="@color/user_icon_default_white"
+                        android:textSize="10sp"
+                        android:text="16:9"/>
+                </FrameLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="白平衡"/>
+
+                <ImageView
+                    android:id="@+id/img_camera_balance_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/arrow_right"/>
+
+                <ImageView
+                    android:layout_toLeftOf="@+id/img_camera_balance_right"
+                    android:layout_marginRight="@dimen/activity_magin_10"
+                    android:layout_width="45dip"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/advanced_more_whitebalance_auto"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="风格"/>
+
+                <ImageView
+                    android:id="@+id/img_camera_style_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/arrow_right"/>
+
+                <ImageView
+                    android:layout_toLeftOf="@+id/img_camera_style_right"
+                    android:layout_marginRight="@dimen/activity_magin_10"
+                    android:layout_width="45dip"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/advanced_more_none"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="色彩"/>
+
+                <ImageView
+                    android:id="@+id/img_camera_colour_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/arrow_right"/>
+
+                <TextView
+                    android:layout_toLeftOf="@+id/img_camera_colour_right"
+                    android:layout_marginRight="@dimen/activity_magin_10"
+                    android:layout_width="45dip"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/user_icon_default_white"
+                    android:text="普通"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>

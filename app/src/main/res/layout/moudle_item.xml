@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/linear_moudle"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:padding="@dimen/activity_magin_5"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/img_moudle"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:background="@mipmap/pic_3d_online"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="@dimen/activity_magin_5"
+        android:id="@+id/txt_moudle"
+        android:layout_width="wrap_content"
+        android:textColor="@color/user_icon_default_white"
+        android:text="毒气"
+        android:layout_height="wrap_content" />
+</LinearLayout>

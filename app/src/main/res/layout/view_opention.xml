@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.internal.BaselineLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/way_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom|center"
+        android:orientation="horizontal">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_land_option"
+            android:layout_width="wrap_content"
+            app:borderWidth="0dp"
+            android:visibility="visible"
+            app:pressedTranslationZ="10dp"
+            android:layout_margin="@dimen/activity_magin_5"
+            android:layout_height="wrap_content"
+            app:rippleColor="#ff87ffeb"
+            app:elevation="6dp"
+            android:src="@mipmap/leftmenu_dlg_landing"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_takeoff_land"
+            android:layout_width="wrap_content"
+            app:borderWidth="0dp"
+            app:pressedTranslationZ="10dp"
+            android:layout_height="wrap_content"
+            app:rippleColor="#ff87ffeb"
+            android:layout_margin="@dimen/activity_magin_5"
+            app:elevation="6dp"
+            android:src="@mipmap/leftmenu_dlg_takeoff"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_opention_gohome"
+            android:layout_width="wrap_content"
+            app:borderWidth="0dp"
+            app:pressedTranslationZ="10dp"
+            android:layout_margin="@dimen/activity_magin_5"
+            android:visibility="visible"
+            android:layout_height="wrap_content"
+            app:elevation="6dp"
+            app:rippleColor="#ff87ffeb"
+            android:src="@mipmap/leftmenu_dlg_gohome"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_opention_Suspen"
+            android:layout_width="wrap_content"
+            app:borderWidth="0dp"
+            app:pressedTranslationZ="10dp"
+            android:visibility="visible"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_magin_5"
+            app:elevation="6dp"
+            app:rippleColor="#ff87ffeb"
+            android:src="@mipmap/chek_list_escm"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_opention_way"
+            android:layout_width="wrap_content"
+            app:borderWidth="0dp"
+            app:pressedTranslationZ="10dp"
+            android:layout_margin="@dimen/activity_magin_5"
+            app:rippleColor="#ff87ffeb"
+            app:elevation="6dp"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/gs_menu_way_point_icon"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_fllow_me_minssion"
+            android:layout_width="wrap_content"
+            app:borderWidth="0dp"
+            app:pressedTranslationZ="10dp"
+            android:layout_margin="@dimen/activity_magin_5"
+            app:rippleColor="#ff87ffeb"
+            android:visibility="gone"
+            app:elevation="6dp"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/gs_menu_follow_me_icon"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_hopt_minssion"
+            android:layout_width="wrap_content"
+            app:borderWidth="0dp"
+            android:visibility="gone"
+            app:pressedTranslationZ="10dp"
+            android:layout_margin="@dimen/activity_magin_5"
+            app:rippleColor="#ff87ffeb"
+            app:elevation="6dp"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/gs_menu_point_of_insterest_icon"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_up_minssions"
+            android:layout_width="wrap_content"
+            app:borderWidth="0dp"
+            android:visibility="gone"
+            app:pressedTranslationZ="10dp"
+            android:layout_margin="@dimen/activity_magin_5"
+            app:rippleColor="#ff87ffeb"
+            app:elevation="6dp"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/active_success"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btn_clean_minssions"
+            android:layout_width="wrap_content"
+            app:borderWidth="0dp"
+            android:visibility="gone"
+            app:pressedTranslationZ="10dp"
+            android:layout_margin="@dimen/activity_magin_5"
+            app:rippleColor="#ff87ffeb"
+            app:elevation="6dp"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/leftmenu_gohome_cancel_icon"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_way_btn"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/view_way"/>
+    </FrameLayout>
+
+</android.support.design.internal.BaselineLayout>

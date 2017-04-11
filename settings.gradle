@@ -1,0 +1,1 @@
+include ':app', ':jackmvpmoudle', ':maplib', 'dJISDKLIB', 'dialog', 'library'

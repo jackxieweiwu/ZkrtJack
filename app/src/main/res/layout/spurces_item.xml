@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txt_lat"
+        android:layout_width="match_parent"
+        android:layout_weight="3"
+        android:singleLine="true"
+        android:gravity="center"
+        android:textColor="@color/user_icon_default_white"
+        android:layout_height="50dip" />
+    <TextView
+        android:id="@+id/txt_lng"
+        android:layout_width="match_parent"
+        android:singleLine="true"
+        android:gravity="center"
+        android:textColor="@color/user_icon_default_white"
+        android:layout_weight="3"
+        android:layout_height="50dip" />
+
+    <TextView
+        android:id="@+id/txt_co"
+        android:layout_width="match_parent"
+        android:singleLine="true"
+        android:gravity="center"
+        android:textColor="@color/user_icon_default_white"
+        android:layout_weight="3"
+        android:layout_height="50dip" />
+
+    <TextView
+        android:id="@+id/txt_h2s"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="@color/user_icon_default_white"
+        android:layout_width="match_parent"
+        android:layout_height="50dip" />
+
+    <TextView
+        android:id="@+id/txt_nh3"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="@color/user_icon_default_white"
+        android:layout_width="match_parent"
+        android:layout_height="50dip" />
+
+    <TextView
+        android:id="@+id/txt_co2"
+        android:layout_weight="3"
+        android:singleLine="true"
+        android:gravity="center"
+        android:textColor="@color/user_icon_default_white"
+        android:layout_width="match_parent"
+        android:layout_height="50dip" />
+
+    <TextView
+        android:id="@+id/txt_time"
+        android:layout_weight="3"
+        android:singleLine="true"
+        android:gravity="center"
+        android:textColor="@color/user_icon_default_white"
+        android:layout_width="match_parent"
+        android:layout_height="50dip" />
+</LinearLayout>

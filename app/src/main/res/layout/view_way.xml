@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/linear_mission"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btn_up_minssion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:borderWidth="0dp"
+                android:elevation="0dp"
+                app:fabSize="normal"
+                app:pressedTranslationZ="10dp"
+                app:rippleColor="#ff87ffeb"
+                app:elevation="6dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:textColor="@color/user_icon_default_white"
+                android:text="上传"
+                android:elevation="7dp"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btn_start_minssion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:borderWidth="0dp"
+                android:elevation="0dp"
+                app:fabSize="normal"
+                app:pressedTranslationZ="10dp"
+                app:rippleColor="#ff87ffeb"
+                app:elevation="6dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:textColor="@color/user_icon_default_white"
+                android:text="开始"
+                android:elevation="7dp"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btn_stop_minssion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:borderWidth="0dp"
+                android:elevation="0dp"
+                app:fabSize="normal"
+                app:pressedTranslationZ="10dp"
+                app:rippleColor="#ff87ffeb"
+                app:elevation="6dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:textColor="@color/user_icon_default_white"
+                android:text="结束"
+                android:elevation="7dp"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btn_pusae_minssion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:borderWidth="0dp"
+                android:elevation="0dp"
+                app:fabSize="normal"
+                app:pressedTranslationZ="10dp"
+                app:rippleColor="#ff87ffeb"
+                app:elevation="6dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:textColor="@color/user_icon_default_white"
+                android:text="暂停"
+                android:elevation="7dp"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btn_resume_minssion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:borderWidth="0dp"
+                android:elevation="0dp"
+                app:fabSize="normal"
+                app:pressedTranslationZ="10dp"
+                app:rippleColor="#ff87ffeb"
+                app:elevation="6dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:textColor="@color/user_icon_default_white"
+                android:text="继续"
+                android:elevation="7dp"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btn_clean_minssion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:borderWidth="0dp"
+                android:elevation="0dp"
+                app:fabSize="normal"
+                app:pressedTranslationZ="10dp"
+                app:rippleColor="#ff87ffeb"
+                app:elevation="6dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:textColor="@color/user_icon_default_white"
+                android:text="关闭"
+                android:elevation="7dp"/>
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/mai_recy_waypion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:scrollbars="none"
+        android:fadeScrollbars="true"/>
+</LinearLayout>

@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/jack/视频/ZkrtJack/library/build/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/ic_launcher.png",
+        "source": "/home/jack/视频/ZkrtJack/library/build/intermediates/exploded-aar/com.pnikosis/materialish-progress/1.0/res/drawable-mdpi-v4/ic_launcher.png"
+    },
+    {
+        "merged": "/home/jack/视频/ZkrtJack(复件)/library/build/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/ic_launcher.png",
+        "source": "/home/jack/视频/ZkrtJack(复件)/library/build/intermediates/exploded-aar/com.pnikosis/materialish-progress/1.0/res/drawable-mdpi-v4/ic_launcher.png"
+    }
+]

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="600dip"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_magin_5"
+    android:layout_gravity="center"
+    android:background="@drawable/bg"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/ralay_modle_atop"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="模块"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/activity_magin_5"
+            android:textColor="@color/user_icon_default_white"
+            android:textSize="25sp"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/img_btn"
+            android:background="@mipmap/usercenter_clear_highlight"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/relay_modlae_cview"
+        android:layout_below="@+id/ralay_modle_atop"
+        android:layout_marginTop="@dimen/activity_magin_5"
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="@color/user_icon_default_white"/>
+
+    <GridView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/grid_moudle"
+        android:layout_below="@+id/relay_modlae_cview"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_centerInParent="true"
+        android:numColumns="4"
+        android:layout_height="wrap_content"/>
+    <!--<include
+        layout="@layout/moundgrid"/>-->
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/relay_modlae_cview"
+        layout="@layout/gaseslayout"/>
+
+    <include
+        android:layout_below="@+id/relay_modlae_cview"
+        android:layout_width="match_parent"
+        android:layout_height="200dip"
+        android:layout_centerInParent="true"
+        layout="@layout/searchlighting"/>
+
+    <include
+        android:layout_below="@+id/relay_modlae_cview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        layout="@layout/jettisonin"/>
+    <include
+        android:layout_below="@+id/relay_modlae_cview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        layout="@layout/temperature"/>
+</RelativeLayout>

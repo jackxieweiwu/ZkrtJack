@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mount_jettision"
+    android:visibility="invisible"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_height="50dip">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/user_icon_default_white"
+            android:text="抛投一:"
+            android:textSize="@dimen/txt_size_18"/>
+
+        <!--<com.kyleduo.switchbutton.SwitchButton
+            android:id="@+id/btn_floater_one_ios"
+            android:gravity="center"
+            style="@style/SwitchButtonStyle"
+            android:layout_marginLeft="@dimen/activity_magin_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>-->
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/btn_floater_one_ios"
+            android:layout_marginLeft="@dimen/activity_magin_10"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_height="50dip">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/user_icon_default_white"
+            android:text="抛投二:"
+            android:textSize="@dimen/txt_size_18"/>
+
+        <!--<com.kyleduo.switchbutton.SwitchButton
+            android:id="@+id/btn_floater_two_ios"
+            android:gravity="center"
+            style="@style/SwitchButtonStyle"
+            android:layout_marginLeft="@dimen/activity_magin_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>-->
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/btn_floater_two_ios"
+            android:layout_marginLeft="@dimen/activity_magin_10"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_height="50dip">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/user_icon_default_white"
+            android:text="抛投三:"
+            android:textSize="@dimen/txt_size_18"/>
+
+        <!--<com.kyleduo.switchbutton.SwitchButton
+            android:id="@+id/btn_floater_three_ios"
+            android:gravity="center"
+            style="@style/SwitchButtonStyle"
+            android:layout_marginLeft="@dimen/activity_magin_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>-->
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/btn_floater_three_ios"
+            android:layout_marginLeft="@dimen/activity_magin_10"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_paotou_clean"
+        android:background="@drawable/round_btn"
+        android:textColor="@color/user_icon_default_white"
+        android:layout_gravity="bottom|center"
+        android:layout_marginTop="@dimen/activity_magin_20"
+        android:layout_marginBottom="@dimen/activity_magin_20"
+        android:layout_width="100dip"
+        android:layout_height="50dip"
+        android:text="取消"
+        android:textSize="@dimen/txt_size_18"/>
+</LinearLayout>

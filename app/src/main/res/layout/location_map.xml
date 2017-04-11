@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_centerInParent="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/frag_test"
+        app:borderWidth="0dp"
+        app:pressedTranslationZ="10dp"
+        app:rippleColor="#ff87ffeb"
+        android:layout_margin="@dimen/activity_magin_5"
+        app:elevation="6dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/camera_centerpoints1"/>
+
+    <LinearLayout
+        android:id="@+id/linear_localtion_peplo_drone"
+        android:layout_toRightOf="@id/frag_test"
+        android:layout_width="wrap_content"
+        android:visibility="gone"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/frame_peplo"
+            app:borderWidth="0dp"
+            app:pressedTranslationZ="10dp"
+            android:layout_margin="@dimen/activity_magin_5"
+            app:rippleColor="#ff87ffeb"
+            app:elevation="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/leftmenu_homepoint_rc"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/frame_drone"
+            app:borderWidth="0dp"
+            app:pressedTranslationZ="10dp"
+            android:layout_margin="@dimen/activity_magin_5"
+            app:rippleColor="#ff87ffeb"
+            app:elevation="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/leftmenu_homepoint_now"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_check"
+        android:layout_toRightOf="@id/frag_test"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:layout_centerVertical="true"
+        android:background="@drawable/oval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:id="@+id/check_drone"
+            android:layout_width="wrap_content"
+            android:padding="@dimen/activity_magin_5"
+            android:textColor="@color/user_icon_default_white"
+            android:layout_height="wrap_content"
+            android:text="跟随飞行器"/>
+    </LinearLayout>
+
+
+</com.zhy.android.percent.support.PercentRelativeLayout>

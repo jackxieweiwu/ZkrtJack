@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    android:layout_width="wrap_content"
+    android:background="@drawable/bg"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/linear_wendu"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/txt_size_14"
+            android:padding="@dimen/activity_magin_3"
+            android:textColor="@color/user_icon_default_white"
+            android:layout_height="35dip"
+            android:text="温度:" />
+
+        <TextView
+            android:id="@+id/txt_temperature_one"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:textSize="@dimen/txt_size_14"
+            android:padding="@dimen/activity_magin_5"
+            android:textColor="@color/user_icon_default_white"
+            android:gravity="center"
+            android:layout_height="35dip"
+            android:text="10°C(1)"/>
+
+        <TextView
+            android:id="@+id/txt_temperature_two"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:textSize="@dimen/txt_size_14"
+            android:padding="@dimen/activity_magin_5"
+            android:gravity="center"
+            android:textColor="@color/user_icon_default_white"
+            android:layout_height="35dip"
+            android:text="10°C(2)"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_below="@+id/linear_wendu"
+        android:background="@color/user_icon_default_white"/>
+
+    <LinearLayout
+        android:id="@+id/linear_qiti"
+        android:layout_below="@+id/linear_wendu"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_height="30dip">
+
+        <TextView
+            android:text="参考: "
+            android:textColor="@color/user_icon_default_white"
+            android:textSize="@dimen/txt_size_12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/txt_co_error"
+            android:text="co:0"
+            android:textColor="@color/user_icon_default_white"
+            android:textSize="@dimen/txt_size_12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/txt_h2s_error"
+            android:text="h2s:0"
+            android:textSize="@dimen/txt_size_12"
+            android:layout_marginLeft="@dimen/activity_magin_8"
+            android:textColor="@color/user_icon_default_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/txt_nh3_error"
+            android:layout_marginLeft="@dimen/activity_magin_8"
+            android:text="nh3:0"
+            android:textSize="@dimen/txt_size_12"
+            android:textColor="@color/user_icon_default_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/txt_co2_error"
+            android:layout_marginLeft="@dimen/activity_magin_8"
+            android:text="co2:0"
+            android:textSize="@dimen/txt_size_12"
+            android:textColor="@color/user_icon_default_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <com.github.mikephil.charting.charts.HorizontalBarChart
+        android:layout_below="@+id/linear_qiti"
+        android:id="@+id/horiz_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</RelativeLayout>
