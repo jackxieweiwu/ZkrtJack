@@ -153,7 +153,7 @@ public class HDSettingFragment extends BaseMvpFragment{
                 }
             });
 
-//确定是否启用遥控器上的辅助视频输出。
+            //确定是否启用遥控器上的辅助视频输出。
             DJISampleApplication.getAircraftInstance().getAirLink().getLBAirLink().getSecondaryVideoOutputEnabled(new DJICommonCallbacks.DJICompletionCallbackWith<Boolean>() {
                 @Override
                 public void onSuccess(Boolean aBoolean) {
@@ -529,16 +529,28 @@ public class HDSettingFragment extends BaseMvpFragment{
         switch_ios_camera_ext.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(Switch s, boolean isChecked) {
-                if(isChecked){
+                if(!isChecked){
                     if(DJIModuleVerificationUtil.isLBAirlinkAvailable()){
                         DJISampleApplication.getAircraftInstance().getAirLink().getLBAirLink().setEncodeMode(LBAirLinkEncodeMode.Dual, new DJICommonCallbacks.DJICompletionCallback() {
                             @Override
                             public void onResult(DJIError djiError) {
                                 if(djiError ==null){//HDMI
                                     numberMoble = 1;
-                                    switch_ios_camera_ext.setChecked(isChecked);
+                                    mActivity.runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            switch_ios_camera_ext.setChecked(isChecked);
+                                        }
+                                    });
                                     getDataTime();
 
+                                }else{
+                                    mActivity.runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            switch_ios_camera_ext.setChecked(!isChecked);
+                                        }
+                                    });
                                 }
                             }
                         });}
@@ -552,10 +564,17 @@ public class HDSettingFragment extends BaseMvpFragment{
                                     mActivity.runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {
-                                            switch_ios_camera_ext.setChecked(!isChecked);
+                                            switch_ios_camera_ext.setChecked(isChecked);
                                         }
                                     });
                                     getDataTime();
+                                }else{
+                                    mActivity.runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            switch_ios_camera_ext.setChecked(!isChecked);
+                                        }
+                                    });
                                 }
                             }
                         });}
@@ -623,6 +642,8 @@ public class HDSettingFragment extends BaseMvpFragment{
                     }else if(numberMoble == 1){  //hdmi
                         numbera = position+2;
                     }
+
+                    Utils.setResultToToast(mActivity,"***-***-***"+VideoDataChannel.find(numbera));
                     DJISampleApplication.getAircraftInstance().getAirLink().getLBAirLink().setVideoDataChannel(VideoDataChannel.find(numbera), new DJICommonCallbacks.DJICompletionCallback() {
                         @Override
                         public void onResult(DJIError djiError) {
@@ -828,9 +849,9 @@ public class HDSettingFragment extends BaseMvpFragment{
             @Override
             public void run() {
                 if(numberMoble == 1) {  //hdmi
-                    switch_ios_camera_ext.setChecked(true);  //启用
+                    switch_ios_camera_ext.setChecked(false);  //启用 HDMI
                 }else if(numberMoble == 0){
-                    switch_ios_camera_ext.setChecked(false);
+                    switch_ios_camera_ext.setChecked(true);
                 }
                 updateHdmiAvLbExt();
             }

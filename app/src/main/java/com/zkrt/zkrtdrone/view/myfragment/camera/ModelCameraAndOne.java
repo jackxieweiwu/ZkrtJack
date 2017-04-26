@@ -34,14 +34,13 @@ public class ModelCameraAndOne extends BaseMvpFragment{
     private int take_picture = 0;
     private int recording = 0;
     private int number3d = 1;
-    private int numberPao = 1;
+    private int numberPao = 0;
     private CustomDialog dialog;
     private int numberzs = 0;
     private int redQh = 0;
     private int colorQh = 0;
     private int moudleQh = 0;
     private int zoomType = -1;
-    private boolean zoomStatus = false;
 
 
     @BindView(R.id.model_camera_rela) RelativeLayout model_camera_rela;
@@ -226,43 +225,48 @@ public class ModelCameraAndOne extends BaseMvpFragment{
         dialog.serDataValues(0,0,"camera_mount",bool,zoomStop,
                 take_picture,recording,no7_2,no7_1,no1,no2,redQh,colorQh,moudleQh,no72,no71);
     }
+
     public void setZhaoShe(int number ,boolean bool){
-        if(number == 1 && numberzs == 0){
+        if(number == 1){
+            if(numberzs == 0)dialog.setExposure(true,bool);
+            if(numberzs == 1){
+                dialog.setExposure(false,bool);
+                numberzs = 0;
+            }
             numberzs =1;
-            dialog.setExposure(true,bool);
-        }else if(number == 0 && numberzs == 1){
-            dialog.setExposure(false,bool);
-            numberzs = 0;
         }
     }
 
+    private int paotouNum = -1;
     //抛投
     public void setPaoTou(int number){
-        if(number== 1){
-            Utils.setResultToToast(mActivity,"aaaa---"+numberPao);
-            if(numberPao == 4){
-                dialog.setRoling(numberPao-1, false,false);
+        if(number== 1 && paotouNum !=number){
+            if(numberPao == 0){
                 numberPao = 1;
-                return;
+                dialog.setRoling(numberPao, true,false);
+            }else if(numberPao ==1){
+                numberPao = 2;
+                dialog.setRoling(numberPao, true,false);
+            }else if(numberPao ==2){
+                numberPao = 3;
+                dialog.setRoling(numberPao, true,false);
+            }else if(numberPao == 3){
+                dialog.setRoling(numberPao, false,false);
+                numberPao = 0;
             }
-            dialog.setRoling(numberPao, true,false);
-            numberPao++;
         }
+        paotouNum = number;
     }
 
     //变焦
     public void setComAssisZoom(int zoom, boolean b){
+        Utils.setResultToToast(mActivity,zoom+"");
         if(zoom>120){
             setZoomBig(b);
-            zoomStatus = true;
         }else if(zoom<=120 && zoom>=85){
-            if(zoomStatus) {
-                setStopZoom(b);
-            }
-            zoomStatus = false;
+            setStopZoom(b);
         }else if(zoom<85){
             setZoomMin(b);
-            zoomStatus = true;
         }
     }
 
@@ -271,7 +275,7 @@ public class ModelCameraAndOne extends BaseMvpFragment{
         //left right
         no2 = (int) (((200-upOrDow)+1350)+((200-upOrDow)*0.5d))-3;
         no1 = (int) ((leftOrRight+1350)+(leftOrRight*0.5d))-3;
-        dialogGotoDate(false,"");
+        dialogGotoDate(false,"a");
     }
 
     //确认避障

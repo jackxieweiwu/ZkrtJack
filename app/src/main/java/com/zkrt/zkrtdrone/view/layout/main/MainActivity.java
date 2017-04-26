@@ -4,17 +4,16 @@ import android.animation.Animator;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.os.Handler;
+import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
+import android.support.percent.PercentRelativeLayout;
 import android.util.Base64;
 import android.view.View;
 import android.view.ViewAnimationUtils;
@@ -26,26 +25,17 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.amap.api.maps.AMap;
-
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.appindexing.Thing;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.zhy.android.percent.support.PercentRelativeLayout;
 import com.zkrt.zkrtdrone.DJISampleApplication;
 import com.zkrt.zkrtdrone.R;
 import com.zkrt.zkrtdrone.base.Utils;
-import com.zkrt.zkrtdrone.bean.AssistBean;
 import com.zkrt.zkrtdrone.bean.ComAssis;
 import com.zkrt.zkrtdrone.bean.ComBean;
-import com.zkrt.zkrtdrone.bean.exelBean;
+import com.zkrt.zkrtdrone.comassis.serialport_help.ClientThread;
 import com.zkrt.zkrtdrone.comassis.serialport_help.MyFunc;
 import com.zkrt.zkrtdrone.comassis.serialport_help.SerialHelper;
 import com.zkrt.zkrtdrone.receiver.DjiFlightController;
 import com.zkrt.zkrtdrone.until.DJIModuleVerificationUtil;
-import com.zkrt.zkrtdrone.until.HexToBinary;
 import com.zkrt.zkrtdrone.view.myfragment.camera.CameraFPV;
 import com.zkrt.zkrtdrone.view.myfragment.camera.ModelCameraAndOne;
 import com.zkrt.zkrtdrone.view.myfragment.camera.cameraFileSetting.CameraFileFragment;
@@ -54,27 +44,26 @@ import com.zkrt.zkrtdrone.view.myfragment.mount.MountFragment;
 import com.zkrt.zkrtdrone.view.myfragment.mapmvp.MyMapFragment;
 import com.zkrt.zkrtdrone.view.widget.RotateImageView;
 import com.zkrt.zkrtdrone.view.widget.compass.CompassView2;
-
 import org.litepal.tablemanager.Connector;
-
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.security.InvalidParameterException;
-
 import butterknife.BindView;
 import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import dji.common.flightcontroller.DJIFlightControllerCurrentState;
+import zkrtdrone.zkrt.com.jackmvpmoudle.base.BaseApplication;
 import zkrtdrone.zkrt.com.jackmvpmoudle.base.BaseMvpActivity;
 import zkrtdrone.zkrt.com.jackmvpmoudle.base.rxbean.IOTask;
 import zkrtdrone.zkrt.com.jackmvpmoudle.base.rxbean.UITask;
 import zkrtdrone.zkrt.com.jackmvpmoudle.util.DensityUtil;
 import zkrtdrone.zkrt.com.jackmvpmoudle.util.rxutil.RxjavaUtil;
 
-import static com.zkrt.zkrtdrone.until.TimeUtil.getTimeDate2;
+import static com.zkrt.zkrtdrone.comassis.serialport_help.MyFunc.ByteArrToHex;
+import static com.zkrt.zkrtdrone.comassis.serialport_help.MyFunc.HexToString;
 
 /**
  * Created by jack_xie on 16-12-22.
@@ -132,9 +121,9 @@ public class MainActivity extends BaseMvpActivity<MainPresenter, MainModel> impl
     @BindView(R.id.txt_log_a) TextView txt_log_a;
     @BindView(R.id.linear_camera) LinearLayout linear_camera;
     private MyMapFragment myMapFragment;
-    private SerialControl ComA;
+    //private SerialControl ComA;
     //SerialPortFinder mSerialPortFinder;//串口设备搜索
-    AssistBean AssistData;//用于界面数据序列化和反序列化
+    //AssistBean AssistData;//用于界面数据序列化和反序列化
     private ModelCameraAndOne modelCameraAndOne;
     private CameraFileFragment cameraFile;
     private CameraFPV cameraFPV;
@@ -145,6 +134,8 @@ public class MainActivity extends BaseMvpActivity<MainPresenter, MainModel> impl
     //定义转过的角度
     private float currentDegree = 0f;
     ///-------------------
+    private Handler handler;
+    ClientThread clientThread;
     private int take = 0;
     private int rec = 0;
     private int takeoff = 0;
@@ -152,11 +143,6 @@ public class MainActivity extends BaseMvpActivity<MainPresenter, MainModel> impl
     private int hover = 0;
     private int go_home = 0;
     private int cameraMap = 0;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
 
     @Override
     public int getLayoutId() {
@@ -176,20 +162,36 @@ public class MainActivity extends BaseMvpActivity<MainPresenter, MainModel> impl
         screenWidth = widhHight[0];
         screenHeigh = widhHight[1];
 
-        ComA = new SerialControl();
-        AssistData = getAssistData();
-        setControls();
+        /*ComA = new SerialControl();
+        AssistData = getAssistData();*/
+        //setControls();
         //生成数据库
         SQLiteDatabase db = Connector.getDatabase();
+
+        handler = new Handler(){
+            @Override
+            public void handleMessage(Message msg){
+                if(msg.what == 0x123){
+                    //String name = ByteArrToHex(msg.obj.toString().getBytes());
+                    ComBean comBean = (ComBean) msg.getData().getSerializable("ComRecData");
+                    String name = ByteArrToHex(comBean.bRec)+"";
+                    if(name.equals("")) return;
+                    goneExitText(HexToString(name));
+                }
+            }
+        };
+
+        clientThread = new ClientThread(handler, "192.168.1.7", "26");
+        new Thread(clientThread).start();
     }
 
     private void setControls() {
-        AssistData.setTxtMode(true);
+        //AssistData.setTxtMode(true);
         // mSerialPortFinder= new SerialPortFinder();
         //ComA.setPort("/dev/ttymxc2");
-        ComA.setPort("/dev/ttyS1");
-        ComA.setBaudRate("9600");
-        OpenComPort(ComA);
+        ////ComA.setPort("/dev/ttyS1");
+        //ComA.setBaudRate("9600");
+        //OpenComPort(ComA);
     }
 
     @Override
@@ -223,42 +225,7 @@ public class MainActivity extends BaseMvpActivity<MainPresenter, MainModel> impl
 
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
-    }
-
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    public Action getIndexApiAction() {
-        Thing object = new Thing.Builder()
-                .setName("Main Page") // TODO: Define a title for the content shown.
-                // TODO: Make sure this auto-generated URL is correct.
-                .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
-                .build();
-        return new Action.Builder(Action.TYPE_VIEW)
-                .setObject(object)
-                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
-                .build();
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.connect();
-        AppIndex.AppIndexApi.start(client, getIndexApiAction());
-    }
-
-    private class SerialControl extends SerialHelper {
+    /*private class SerialControl extends SerialHelper {
         public SerialControl() {
         }
 
@@ -271,13 +238,13 @@ public class MainActivity extends BaseMvpActivity<MainPresenter, MainModel> impl
                 }
             });
         }
-    }
+    }*/
 
-    private void CloseComPort(SerialHelper ComPort) {
+    /*private void CloseComPort(SerialHelper ComPort) {
         if (ComPort != null) {
             ComPort.close();
         }
-    }
+    }*/
 
     private void goneExitText(ComAssis comAssis) {
         if (comAssis != null) {
@@ -324,8 +291,8 @@ public class MainActivity extends BaseMvpActivity<MainPresenter, MainModel> impl
 
             //拍照
             if (comAssis.getFiveBtn() == 1 && take == 0) {
+                if(take == 0 && modelCameraAndOne != null) modelCameraAndOne.setTakePhoto(false);
                 take = 1;
-                if (modelCameraAndOne != null) modelCameraAndOne.setTakePhoto(false);
             } else if (comAssis.getFiveBtn() == 0 && take == 1) {
                 take = 0;
             }
@@ -355,7 +322,7 @@ public class MainActivity extends BaseMvpActivity<MainPresenter, MainModel> impl
         }
     }
 
-    private void OpenComPort(SerialHelper ComPort) {
+    /*private void OpenComPort(SerialHelper ComPort) {
         try {
             ComPort.open();
         } catch (SecurityException e) {
@@ -365,9 +332,9 @@ public class MainActivity extends BaseMvpActivity<MainPresenter, MainModel> impl
         } catch (InvalidParameterException e) {
             Utils.setResultToToast(this, "打开串口失败:参数错误!");
         }
-    }
+    }*/
 
-    private AssistBean getAssistData() {
+    /*private AssistBean getAssistData() {
         SharedPreferences msharedPreferences = getSharedPreferences("ComAssistant", Context.MODE_PRIVATE);
         AssistBean AssistData = new AssistBean();
         try {
@@ -381,7 +348,7 @@ public class MainActivity extends BaseMvpActivity<MainPresenter, MainModel> impl
             e.printStackTrace();
         }
         return AssistData;
-    }
+    }*/
 
     @OnClick(R.id.img_zoom_out)
     public void setZoomout(View v) {
@@ -740,9 +707,9 @@ public class MainActivity extends BaseMvpActivity<MainPresenter, MainModel> impl
         //如果飞机回家。
         if (djiFlightControllerCurrentState.isGoingHome()) {
             if (modleStop.equals("GoHome"))
-                Utils.setResultToToast(MainActivity.this, "开始返航");
+                if(handFragment !=null)handFragment.setStatusError("开始返航");
             else if (modleStop.equals("Landing"))
-                Utils.setResultToToast(MainActivity.this, "开始降落");
+                if(handFragment !=null)handFragment.setStatusError("开始降落");
         }
 
         if (cameraFile != null && modelCameraAndOne != null) {
@@ -815,7 +782,7 @@ public class MainActivity extends BaseMvpActivity<MainPresenter, MainModel> impl
 
     @Override
     protected void onPause() {
-        CloseComPort(ComA);
+        //CloseComPort(ComA);
         if (sensorManager != null) sensorManager.unregisterListener(this);
         super.onPause();
     }
@@ -824,16 +791,11 @@ public class MainActivity extends BaseMvpActivity<MainPresenter, MainModel> impl
     protected void onStop() {
         if (sensorManager != null) sensorManager.unregisterListener(this);
         super.onStop();// ATTENTION: This was auto-generated to implement the App Indexing API.
-// See https://g.co/AppIndexing/AndroidStudio for more information.
-        AppIndex.AppIndexApi.end(client, getIndexApiAction());
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.disconnect();
     }
 
     @Override
     protected void onDestroy() {
-        CloseComPort(ComA);
+        //CloseComPort(ComA);
         //取消注册
         if (sensorManager != null) sensorManager.unregisterListener(this);
         super.onDestroy();
@@ -867,6 +829,7 @@ public class MainActivity extends BaseMvpActivity<MainPresenter, MainModel> impl
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        if(txt_log_a == null) return;
                         txt_log_a.setVisibility(View.VISIBLE);
                         txt_log_a.setText(name + "");
                         txt_log_a.setBackgroundColor(color);

@@ -41,6 +41,7 @@
             android:layout_height="45dip"
             android:background="@drawable/exit_bg"
             android:textSize="@dimen/txt_size_18"
+            android:textColor="@color/Blue_700"
             android:inputType="numberSigned"
             android:ems="3"
             android:text="0"
@@ -70,6 +71,7 @@
             android:layout_height="45dip"
             android:background="@drawable/exit_bg"
             android:textSize="@dimen/txt_size_18"
+            android:textColor="@color/Blue_700"
             android:inputType="numberSigned"
             android:ems="3"
             android:text="0"
@@ -101,6 +103,7 @@
             android:textSize="@dimen/txt_size_18"
             android:text="4"
             android:inputType="numberSigned"
+            android:textColor="@color/Blue_700"
             android:ems="3"
             android:gravity="center"/>
     </LinearLayout>
@@ -129,6 +132,7 @@
             android:background="@drawable/exit_bg"
             android:textSize="@dimen/txt_size_18"
             android:inputType="numberSigned"
+            android:textColor="@color/Blue_700"
             android:ems="3"
             android:text="510"
             android:gravity="center"/>

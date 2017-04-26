@@ -111,7 +111,6 @@ public class CustomDialog extends BaseDialog implements AdapterView.OnItemClickL
     public void setDeviceBack(DeviceCallback deviceCallback, Module module, List<MoudleBean> listMoudleBean){
         this.mDeviceCallback = deviceCallback;
         String modleStatus = HexToBinary.Hex2Binary(deviceCallback.getDeviceCallBackData().getSetFeedback().replace(" ", ""));
-
         //检测回馈的指令是否执行
         if(moudleAdapter != null) moudleAdapter.addAll(listMoudleBean);
         if(module.getDEVICE_TYPE_IRRADIATE() == 1){  //照射模块
@@ -375,17 +374,25 @@ public class CustomDialog extends BaseDialog implements AdapterView.OnItemClickL
             switch (v.getId()){
                 case R.id.exit_height_value:
                     if(height.isEmpty() || height.equals("")){ Utils.setResultToToast(context,"不可为空"); return;}
-
-                    if(Float.parseFloat(height)<60f) Utils.setResultToToast(context,"上限最低为60");
-
-                    if(Float.parseFloat(height)>1000f) Utils.setResultToToast(context,"上限最高为1000");
+                    if(Float.parseFloat(height)<60f){
+                        Utils.setResultToToast(context,"上限最低为60");
+                        exit_height_value.setText("60");
+                    }
+                    if(Float.parseFloat(height)>1000f){
+                        Utils.setResultToToast(context,"上限最高为1000");
+                        exit_height_value.setText("1000");
+                    }
                     break;
                 case R.id.exit_low_value:
                     if(low.isEmpty() || low.equals("")) {Utils.setResultToToast(context,"不可为空");return;}
-
-                    if(Float.parseFloat(low)<-45f) Utils.setResultToToast(context,"下限最低为-45");
-
-                    if(Float.parseFloat(low)>60f) Utils.setResultToToast(context,"下限最高为60");
+                    if(Float.parseFloat(low)<-45f) {
+                        Utils.setResultToToast(context,"下限最低为-45");
+                        exit_height_value.setText("-45");
+                    }
+                    if(Float.parseFloat(low)>60f){
+                        Utils.setResultToToast(context,"下限最高为60");
+                        exit_height_value.setText("60");
+                    }
                     break;
             }
         }

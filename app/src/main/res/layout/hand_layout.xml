@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.android.percent.support.PercentRelativeLayout
+                                                <android.support.percent.PercentRelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/hand_status_id"
@@ -11,8 +11,9 @@
 
     <LinearLayout
         android:id="@+id/linear_mode"
+        android:layout_centerHorizontal="true"
         android:layout_width="@dimen/activity_magin_0"
-        app:layout_widthPercent="15%w"
+        app:layout_widthPercent="15%"
         android:gravity="center"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
@@ -43,40 +44,45 @@
             android:textColor="@android:color/white"/>
     </LinearLayout>
 
-    <com.zhy.android.percent.support.PercentLinearLayout
+    <LinearLayout
         android:layout_toRightOf="@id/linear_mode"
         android:layout_width="@dimen/activity_magin_0"
-        app:layout_widthPercent="83%w"
+        app:layout_widthPercent="83%"
+        android:weightSum="1"
+        android:layout_centerHorizontal="true"
         android:layout_height="match_parent"
         android:orientation="horizontal">
+
         <include
             android:layout_marginLeft="@dimen/activity_magin_10"
             android:layout_width="@dimen/activity_magin_0"
-            app:layout_widthPercent="7%w"
+            android:layout_weight="0.1"
             android:layout_height="match_parent"
             layout="@layout/hand_gps"/>
 
         <include
+            android:layout_weight="0.1"
             android:layout_marginLeft="@dimen/activity_magin_10"
             android:layout_width="@dimen/activity_magin_0"
-            app:layout_widthPercent="7%w"
             android:layout_height="match_parent"
             layout="@layout/hand_rcsignal"/>
 
         <include
+            android:layout_weight="0.1"
             android:layout_marginLeft="@dimen/activity_magin_10"
             android:layout_width="@dimen/activity_magin_0"
-            app:layout_widthPercent="7%w"
             android:layout_height="match_parent"
             layout="@layout/hand_radiosingl"/>
 
         <LinearLayout
+            android:layout_weight="0.1"
             android:layout_width="@dimen/activity_magin_0"
-            app:layout_widthPercent="9%w"
+            app:layout_widthPercent="9%"
             android:gravity="center"
             android:layout_marginLeft="@dimen/activity_magin_10"
             android:orientation="horizontal"
             android:layout_height="match_parent">
+
             <ImageView
                 android:id="@+id/base_img"
                 android:layout_gravity="center"
@@ -96,18 +102,18 @@
         </LinearLayout>
 
         <include
+            android:layout_weight="0.4"
             android:layout_width="@dimen/activity_magin_0"
-            app:layout_widthPercent="45%w"
             android:layout_marginLeft="@dimen/activity_magin_10"
             android:layout_height="match_parent"
             layout="@layout/hand_text_status"/>
 
         <include
+            android:layout_weight="0.2"
             android:layout_width="@dimen/activity_magin_0"
-            app:layout_widthPercent="16%w"
             android:layout_height="match_parent"
             layout="@layout/timelayout"/>
-    </com.zhy.android.percent.support.PercentLinearLayout>
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/img_setting"
@@ -116,9 +122,9 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:layout_width="@dimen/activity_magin_0"
-        app:layout_widthPercent="5%w"
+        app:layout_widthPercent="5%"
         android:padding="@dimen/activity_magin_10"
         android:layout_height="match_parent"
         android:src="@mipmap/gs_top_bar_setting_icon"/>
 
-</com.zhy.android.percent.support.PercentRelativeLayout>
+</android.support.percent.PercentRelativeLayout>

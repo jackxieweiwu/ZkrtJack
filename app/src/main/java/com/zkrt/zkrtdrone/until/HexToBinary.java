@@ -5,27 +5,15 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 
-import com.zkrt.zkrtdrone.DJISampleApplication;
 import com.zkrt.zkrtdrone.R;
-import com.zkrt.zkrtdrone.base.Utils;
 import com.zkrt.zkrtdrone.bean.DeviceCallBackData;
 import com.zkrt.zkrtdrone.bean.DeviceCallBackTwo;
 import com.zkrt.zkrtdrone.bean.DeviceCallback;
 import com.zkrt.zkrtdrone.bean.Mephitis;
 import com.zkrt.zkrtdrone.bean.Module;
 import com.zkrt.zkrtdrone.bean.MoudleBean;
-import com.zkrt.zkrtdrone.bean.exelBean;
-import com.zkrt.zkrtdrone.log.FileClass;
-
 import java.util.LinkedList;
 import java.util.List;
-
-import zkrtdrone.zkrt.com.jackmvpmoudle.base.rxbean.IOTask;
-import zkrtdrone.zkrt.com.jackmvpmoudle.base.rxbean.UITask;
-import zkrtdrone.zkrt.com.jackmvpmoudle.util.rxutil.RxjavaUtil;
-import zkrtdrone.zkrt.com.maplib.App;
-
-import static com.zkrt.zkrtdrone.until.TimeUtil.getTimeDate2;
 
 /**
  * Created by jack_xie on 2016/10/25.
@@ -54,7 +42,6 @@ public class HexToBinary {
         String[] strAry = lendName.split(regex);
         if("EB".equalsIgnoreCase(strAry[0])){
             DeviceCallback deviceCallback = new DeviceCallback();
-
             deviceCallback.setStartCode(strAry[0]);
             deviceCallback.setVer(strAry[1]);
             deviceCallback.setSessionAck(strAry[2]);  //f
@@ -91,12 +78,6 @@ public class HexToBinary {
                 deviceCallback.setDeviceCallBackData(deviceCallBackData);
 
             }else if(strAry[13].equals("66")){
-                /*RxjavaUtil.doInIOThread(new IOTask<Object>() {
-                    @Override
-                    public void doInIOThread() {
-                        FileClass.method1(App.app.getPackageName() + "/log/test/",lendName+"\t\n");
-                    }
-                });*/
                 DeviceCallBackTwo deviceCallBackTwo = new DeviceCallBackTwo();
                 deviceCallBackTwo.setObstacleDistance(strAry[18]+" "+strAry[17]);//  下方向障碍物距离 cm
                 deviceCallBackTwo.setObstacleFrontBarrier(strAry[20]+" "+strAry[19]);//前方向障碍物距离

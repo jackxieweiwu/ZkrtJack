@@ -102,6 +102,7 @@
             android:id="@+id/battert_seekbar_one"
             android:layout_width="200dip"
             android:max="40"
+            android:thumb="@drawable/thumb_image"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/activity_magin_10"
             android:layout_toLeftOf="@id/txt_battert_low_one"
@@ -138,6 +139,7 @@
             android:layout_width="200dip"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/activity_magin_10"
+            android:thumb="@drawable/thumb_image"
             android:max="38"
             android:layout_toLeftOf="@id/txt_battert_low_two"
             android:layout_height="wrap_content" />

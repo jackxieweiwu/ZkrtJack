@@ -46,12 +46,12 @@ public class MyFunc {
 
 	static public String ByteArrToHex(byte[] inBytArr)//字节数组转转hex字符串
 	{
-		String strBuilder = "";
+		StringBuffer strBuilder = new StringBuffer();
 		int j=inBytArr.length;
 		for (int i = 0; i < j; i++){
-			strBuilder = setByteString(Byte2Hex(inBytArr[i]));
-			/*strBuilder.append(Byte2Hex(inBytArr[i]));
-			strBuilder.append(" ");*/
+			//strBuilder = setByteString(Byte2Hex(inBytArr[i]));
+			strBuilder.append(Byte2Hex(inBytArr[i]));
+			strBuilder.append(" ");
 		}
 		return strBuilder.toString();
 	}
@@ -86,7 +86,7 @@ public class MyFunc {
 
 	//解析HEX字符取出来
 	static public ComAssis HexToString(String name){
-		if(!name.equals("0")) {
+		if(!name.equals("0") && name.length() == 24) {
 			String[] re = name.split(" ");
 			//取遥感上下
 			int upOrDownNum = Integer.parseInt(re[2].toString(), 16);  //值越大越上
@@ -106,7 +106,7 @@ public class MyFunc {
 			int twoBtn = Integer.parseInt(buttonnum.substring(6, 7));
 			int oneBtn = Integer.parseInt(buttonnum.substring(7, 8));
 			return new ComAssis(upOrDownNum, leftOrRightNum, oneBtn, twoBtn, threeBtn
-					, fourBtn, fiveBtn, sixBtn, sevenBtn, nighteBtn, zoomNum);
+					, fourBtn, fiveBtn, sixBtn, nighteBtn, sevenBtn, zoomNum);
 		}
 		return null;
 	}

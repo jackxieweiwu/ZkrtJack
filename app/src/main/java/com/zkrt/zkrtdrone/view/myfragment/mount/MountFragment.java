@@ -63,15 +63,16 @@ public class MountFragment extends BaseMvpFragment<MountPresenter,MountModel> im
     private TextView txt_obstacle_right;
     private TextView txt_obstacle_front;
     private TextView txt_obstacle_back;
-    private boolean bool = false;
+    //private boolean boolOne = false,boolTwo = false;
+    private int numberOneState = -1,numberTwoState = -1;  //0:温度1异常  1:温度1超过上限  2:温度1超过下限 3:ok
 
 
     private int co_number=0,h2s_number=0,nh3_number=0,co2_number=0;
     private Map<String,String> map_co;
     private SharedPreferences sharedPreferences;
-    private int color = Color.WHITE;
-    private float numValues = 0;
+    private int colorOne = Color.WHITE,colorTwo = Color.WHITE;
     private float numValues1 = 0;
+    private float numValues2 = 0;
     private RelativeLayout  mount_camera_linear;
     private RelativeLayout camera_mount_joy;
     private RelativeLayout  model_camera_rela;
@@ -152,7 +153,6 @@ public class MountFragment extends BaseMvpFragment<MountPresenter,MountModel> im
     protected void getViewFindByid(View view) {
         super.getViewFindByid(view);
         fram_mount = (FloatingActionButton) mActivity.findViewById(R.id.fram_mount);
-
         linear_obstacle = (LinearLayout) mActivity.findViewById(R.id.linear_obstacle);
         txt_obstacle_left = (TextView) mActivity.findViewById(R.id.txt_obstacle_left);
         txt_obstacle_right = (TextView) mActivity.findViewById(R.id.txt_obstacle_right);
@@ -265,6 +265,7 @@ public class MountFragment extends BaseMvpFragment<MountPresenter,MountModel> im
             frame_mount.setVisibility(View.VISIBLE);
             dialogUpdate(module);
             String tempStatus = deviceCallback.getDeviceCallBackData().getStatusTemperatureOne();  //温度状态
+            String tempStatusTwo = deviceCallback.getDeviceCallBackData().getStatusTemperatureTwo();  //温度状态
             String temOne = deviceCallback.getDeviceCallBackData().getTemperatureOne();  //温度
             String temTwo = deviceCallback.getDeviceCallBackData().getTemperatureTwo();  //温度
             String gas_Value1 = deviceCallback.getDeviceCallBackData().getGasValueOne();
@@ -274,23 +275,32 @@ public class MountFragment extends BaseMvpFragment<MountPresenter,MountModel> im
 
             //温度模块
             if (module.getDEVICE_TYPE_TEMPERATURE() == 1) {
-                numValues = HexToBinary.HexTo10IntegerShort(temOne);
-                numValues1 = HexToBinary.HexTo10IntegerShort(temTwo);
+                numValues1 = HexToBinary.HexTo10IntegerShort(temOne);
+                numValues2 = HexToBinary.HexTo10IntegerShort(temTwo);
                 if ("FD".equalsIgnoreCase(tempStatus)) {
-                    //Utils.setResultToToast(getActivity(), "温度异常");
-                    color = Color.RED;
-                    bool = true;
-                    DJISampleApplication.mainActivity.setTextLog("温度异常",color);
+                    colorOne = Color.RED;numberOneState = 0;
+                    DJISampleApplication.mainActivity.setTextLog("温度1异常",colorOne);
                 } else if ("FC".equalsIgnoreCase(tempStatus)) {
-                    color = Color.YELLOW;bool = false;
-                    //Utils.setResultToToast(getActivity(), "温度超过上限");
-                    DJISampleApplication.mainActivity.setTextLog("温度超过上限",color);
+                    colorOne = Color.YELLOW;numberOneState = 1;
+                    DJISampleApplication.mainActivity.setTextLog("温度1超过上限",colorOne);
                 } else if ("FB".equalsIgnoreCase(tempStatus)) {
-                    //Utils.setResultToToast(getActivity(), "温度超过下限");
-                    color = Color.YELLOW;bool = false;
-                    DJISampleApplication.mainActivity.setTextLog("温度超过下限",color);
+                    colorOne = Color.YELLOW;numberOneState = 2;
+                    DJISampleApplication.mainActivity.setTextLog("温度1超过下限",colorOne);
                 } else if ("FE".equalsIgnoreCase(tempStatus)) {
-                    color = Color.WHITE; bool = false;
+                    colorOne = Color.WHITE; numberOneState = 3;
+                }
+
+                if ("FD".equalsIgnoreCase(tempStatusTwo)) {
+                    colorTwo = Color.RED;numberTwoState = 0;
+                    DJISampleApplication.mainActivity.setTextLog("温度2异常",colorTwo);
+                } else if ("FC".equalsIgnoreCase(tempStatusTwo)) {
+                    colorTwo = Color.YELLOW;numberTwoState = 1;
+                    DJISampleApplication.mainActivity.setTextLog("温度2超过上限",colorTwo);
+                } else if ("FB".equalsIgnoreCase(tempStatusTwo)) {
+                    colorTwo = Color.YELLOW;numberTwoState = 2;
+                    DJISampleApplication.mainActivity.setTextLog("温度2超过下限",colorTwo);
+                } else if ("FE".equalsIgnoreCase(tempStatusTwo)) {
+                    colorTwo = Color.WHITE; numberTwoState = 3;
                 }
             }
 
@@ -312,18 +322,24 @@ public class MountFragment extends BaseMvpFragment<MountPresenter,MountModel> im
             map_co.put("NH3", nh3_number + "");
             map_co.put("CO2", co2_number + "");
 
-
             if(txt_temperature_one != null) {
-                if(!bool) {
-                    txt_temperature_one.setText(numValues > numValues1 ? numValues + "" : numValues1 + "");
-                    txt_temperature_two.setText(numValues > numValues1 ? numValues + "" : numValues1 + "");
-                /*txt_temperature_one.setText(numValues + "");
-                txt_temperature_two.setText(numValues1 + "");*/
-                    txt_temperature_one.setTextColor(color);
-                    txt_temperature_two.setTextColor(color);
-                }else{
+                if(module.getDEVICE_TYPE_TEMPERATURE() == 0){
                     txt_temperature_one.setText(0 + "");
                     txt_temperature_two.setText(0 + "");
+                }else{
+                    if(numberOneState == 0) txt_temperature_one.setText(0 + "");
+                    if(numberTwoState == 0) txt_temperature_two.setText(0 + "");
+
+                    if((numberOneState >0 && numberOneState<=3) && numberTwoState == 0){
+                        txt_temperature_one.setText(numValues1+"");
+                    }else if(numberOneState == 0 && (numberTwoState >0 && numberTwoState<=3)){
+                        txt_temperature_two.setText(numValues2+"");
+                    }else if((numberOneState >0 && numberOneState<=3) && (numberTwoState >0 && numberTwoState<=3)){
+                        txt_temperature_one.setText(numValues1 > numValues2 ? numValues1 + "" : numValues2 + "");
+                        txt_temperature_two.setText(numValues1 > numValues2 ? numValues1 + "" : numValues2 + "");
+                    }
+                    txt_temperature_one.setTextColor(colorOne);
+                    txt_temperature_two.setTextColor(colorTwo);
                 }
 
                 txt_co_error.setText("CO: " + shar_co);

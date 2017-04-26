@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.android.percent.support.PercentLinearLayout
+<android.support.percent.PercentRelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:orientation="vertical"
@@ -252,7 +252,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <com.zhy.android.percent.support.PercentLinearLayout
+        <LinearLayout
             android:layout_width="70dip"
             android:orientation="vertical"
             android:layout_height="wrap_content"
@@ -318,7 +318,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:background="@mipmap/camera_controll_advanced_icon_non"/>
-        </com.zhy.android.percent.support.PercentLinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
-</com.zhy.android.percent.support.PercentLinearLayout>
+</android.support.percent.PercentRelativeLayout>

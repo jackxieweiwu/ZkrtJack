@@ -95,6 +95,13 @@ public class FlashActivity extends BaseMvpActivity implements DJIBaseProduct.DJI
                                 timeDialog.showDialog();
                             }
                         });
+                    }else{
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Utils.setResultToToast(FlashActivity.this,"打开对频失败");
+                            }
+                        });
                     }
                 }
             });
@@ -113,11 +120,11 @@ public class FlashActivity extends BaseMvpActivity implements DJIBaseProduct.DJI
     }
 
     public void zkrtSusse(boolean bool) {
-        if(DJIModuleVerificationUtil.isFlightControllerAvailable()) {
+        /*if(DJIModuleVerificationUtil.isFlightControllerAvailable()) {
             //IMU正在预热。
-            /*if (DJISampleApplication.getAircraftInstance().getFlightController().getCurrentState().isIMUPreheating())
-                Utils.setResultToToast(this, "IMU正在预热");*/
-        }
+            *//*if (DJISampleApplication.getAircraftInstance().getFlightController().getCurrentState().isIMUPreheating())
+                Utils.setResultToToast(this, "IMU正在预热");*//*
+        }*/
         if(djiBaseProduct !=null && null != djiBaseProduct.getModel() && bool){
             ToastUtil.show(this,"连接成功...");
             DJISampleApplication.aBoolean = true;

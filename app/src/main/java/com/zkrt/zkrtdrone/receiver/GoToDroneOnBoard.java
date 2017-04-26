@@ -40,7 +40,7 @@ public class GoToDroneOnBoard {
                              EditText exit_height_value,MAVLinkCRC mavLinkCRC,DeviceCallback mDeviceCallback,int no1,
                              int no2,int no7_1,int no7_2 ,int take_picture,int recording,boolean bol,int redQh,int colorQh,int modleQh,
                              int no72,String zoomStop,int no71){
-
+        if(mDeviceCallback == null) return;
         List<String> lists = new ArrayList<>();
         lists.add(mDeviceCallback.getStartCode());
         lists.add(mDeviceCallback.getVer());

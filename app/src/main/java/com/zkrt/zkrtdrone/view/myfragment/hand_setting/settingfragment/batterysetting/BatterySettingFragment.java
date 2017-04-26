@@ -7,20 +7,16 @@ import android.widget.ArrayAdapter;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
-
 import com.zkrt.zkrtdrone.DJISampleApplication;
 import com.zkrt.zkrtdrone.R;
 import com.zkrt.zkrtdrone.base.Utils;
 import com.zkrt.zkrtdrone.until.AppUtil;
 import com.zkrt.zkrtdrone.until.DJIModuleVerificationUtil;
-
 import java.math.BigDecimal;
-
 import butterknife.BindView;
 import dji.common.battery.DJIBatteryAggregationState;
 import dji.common.battery.DJIBatteryLowCellVoltageOperation;
 import dji.common.battery.DJIBatteryState;
-import dji.common.battery.DJIBatteryWarningInformation;
 import dji.common.error.DJIError;
 import dji.common.util.DJICommonCallbacks;
 import dji.sdk.battery.DJIBattery;
@@ -64,7 +60,9 @@ public class BatterySettingFragment extends BaseMvpFragment{
 
         battert_seekbar_two.isPressed();
         battert_seekbar_one.isPressed();
-        spinner_battery_xin.isPressed();
+        //spinner_battery_xin.isPressed();
+        spinner_battery_xin.setSelection(1,false);
+        spinner_battery_xin.invalidate();
     }
 
     @Override
@@ -143,21 +141,39 @@ public class BatterySettingFragment extends BaseMvpFragment{
 
         setSpinner(low_battery_spinner,true);
         setSpinner(kg_low_battery_spinner,false);
-        spinner_battery_xin.setSelection(1,true);
+        //spinner_battery_xin.setSelection(1,true);
         /*setBatterySeekberTwo();
         setBatterySeekberOne();*/
         spinner_battery_xin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                int aa = 9;
                 if (position == 0){
                     numberBattery = 6;
+                    aa = 3;
                 }
 
                 if(position == 1){
                     numberBattery = 12;
+                    aa = 9;
                 }
 
                 if(DJIModuleVerificationUtil.isBattery()){
+                    DJISampleApplication.getAircraftInstance().getBattery().setNumberOfCells(aa, new DJICommonCallbacks.DJICompletionCallback() {
+                        @Override
+                        public void onResult(DJIError djiError) {
+                            if(djiError != null){
+                                mActivity.runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Utils.setResultToToast(mActivity,djiError.getDescription()+"");
+                                    }
+                                });
+                            }
+                        }
+                    });
+
+
                     //获取以mV为单位的1级单元电压阈值。
                     DJISampleApplication.getAircraftInstance().getBattery().getLevel1CellVoltageThreshold(new DJICommonCallbacks.DJICompletionCallbackWith<Integer>() {
                         @Override
@@ -287,12 +303,21 @@ public class BatterySettingFragment extends BaseMvpFragment{
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 seekbartwo = 35/10d+progress/100d;
-                mActivity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        txt_battert_low_two.setText(seekbartwo*numberBattery+"");
-                    }
-                });
+                if(seekbartwo<seekbarOne) {
+                    mActivity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            txt_battert_low_two.setText(seekbartwo * numberBattery + "");
+                        }
+                    });
+                }else{
+                    mActivity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            txt_battert_low_two.setText((seekbarOne * numberBattery)-1 + "");
+                        }
+                    });
+                }
             }
 
             @Override
@@ -302,30 +327,33 @@ public class BatterySettingFragment extends BaseMvpFragment{
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+                if(seekbartwo<seekbarOne)
                 setBatterySeekberTwo();
             }
         });
     }
 
     private void setBatterySeekberTwo(){
-        showLevel1CellVoltageThreshold(42);
         if(DJIModuleVerificationUtil.isBattery()){
-            DJISampleApplication.getAircraftInstance().getBattery().setLevel2CellVoltageThreshold((int) (42.0 * 1000), new DJICommonCallbacks.DJICompletionCallback() {
+            DJISampleApplication.getAircraftInstance().getBattery().setLevel2CellVoltageThreshold((int) (Float.parseFloat(txt_battert_low_two.getText().toString()) * 1000), new DJICommonCallbacks.DJICompletionCallback() {
                 @Override
                 public void onResult(DJIError djiError) {
-
+                    if(djiError == null){
+                        showLevel1CellVoltageThreshold(42);
+                    }
                 }
             });
         }
     }
 
     private void setBatterySeekberOne(){
-        showLevel1CellVoltageThreshold(43);
         if(DJIModuleVerificationUtil.isBattery()){
-            DJISampleApplication.getAircraftInstance().getBattery().setLevel1CellVoltageThreshold((int) (43.5 * 1000), new DJICommonCallbacks.DJICompletionCallback() {
+            DJISampleApplication.getAircraftInstance().getBattery().setLevel1CellVoltageThreshold((int) (Float.parseFloat(txt_battert_low_one.getText().toString()) * 1000), new DJICommonCallbacks.DJICompletionCallback() {
                 @Override
                 public void onResult(DJIError djiError) {
-
+                    if(djiError == null){
+                        showLevel1CellVoltageThreshold(43);
+                    }
                 }
             });
         }
@@ -406,7 +434,7 @@ public class BatterySettingFragment extends BaseMvpFragment{
 
     //@Override
     public void showDJIBatteryAggregationState(DJIBatteryAggregationState djiBatteryAggregationState) {
-        numberBattery = DJISampleApplication.getAircraftInstance().getBattery().getNumberOfCells(); //当前连接的电池数量。
+        /*numberBattery = DJISampleApplication.getAircraftInstance().getBattery().getNumberOfCells(); //当前连接的电池数量。
         mActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -416,7 +444,7 @@ public class BatterySettingFragment extends BaseMvpFragment{
                     spinner_battery_xin.setSelection(1);
                 }
             }
-        });
+        });*/
     }
 
     //@Override

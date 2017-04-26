@@ -3,7 +3,6 @@ package com.zkrt.zkrtdrone.view.myfragment.mount;
 import android.content.res.TypedArray;
 
 import com.zkrt.zkrtdrone.DJISampleApplication;
-import com.zkrt.zkrtdrone.base.Utils;
 import com.zkrt.zkrtdrone.bean.DeviceCallback;
 import com.zkrt.zkrtdrone.bean.Mephitis;
 import com.zkrt.zkrtdrone.bean.Module;
@@ -12,14 +11,10 @@ import com.zkrt.zkrtdrone.bean.exelBean;
 import com.zkrt.zkrtdrone.until.DJIModuleVerificationUtil;
 import com.zkrt.zkrtdrone.until.HexToBinary;
 import com.zkrt.zkrtdrone.view.dialog.CustomDialog;
-
 import java.util.List;
-
 import dji.sdk.flightcontroller.DJIFlightControllerDelegate;
 import zkrtdrone.zkrt.com.jackmvpmoudle.base.rxbean.CommonRxTask;
-import zkrtdrone.zkrt.com.jackmvpmoudle.base.rxbean.UITask;
 import zkrtdrone.zkrt.com.jackmvpmoudle.util.rxutil.RxjavaUtil;
-
 import static com.zkrt.zkrtdrone.DJISampleApplication.deviceCallBackTwo;
 import static com.zkrt.zkrtdrone.until.TimeUtil.getTimeDate;
 import static com.zkrt.zkrtdrone.until.TimeUtil.getTimeDate2;
@@ -64,9 +59,6 @@ public class MountPresenter extends MountContract.Presenter{
                             @Override
                             public void doInIOThread() {
                                 deviceCallback = HexToBinary.analysisByte(HexToBinary.bytesToHexString(bytes));
-                                /*deviceCallback.setDroneGps(new DroneGps(new LatLng(DJISampleApplication.Lat,DJISampleApplication.log),
-                                        DJISampleApplication.HH));*/
-
                                 as= deviceCallback.getUavID().split(" ");
                                 //获取飞行器的一些信息
                                 if(deviceCallback !=null) {
@@ -106,7 +98,7 @@ public class MountPresenter extends MountContract.Presenter{
                                         e.setTime2(getTimeDate2());
                                         e.save();
                                     }
-                                }else{
+                                }else if(as[3].equals("66")){
                                     mView.showDeviceCallbackMoudle2(deviceCallback);
                                 }
                                 //deviceCallback = null;

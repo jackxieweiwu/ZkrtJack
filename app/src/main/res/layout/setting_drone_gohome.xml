@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.android.percent.support.PercentLinearLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
@@ -44,7 +44,7 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-        <com.zhy.android.percent.support.PercentRelativeLayout
+        <android.support.percent.PercentRelativeLayout
             android:id="@+id/go_home_relative"
             android:focusable="true"
             android:focusableInTouchMode="true"
@@ -93,7 +93,7 @@
                 android:layout_toLeftOf="@id/edit_setting_drone_gohome_hight"
                 android:text="(20-500M)"
                 android:textColor="@color/user_icon_default_white" />
-        </com.zhy.android.percent.support.PercentRelativeLayout>
+        </android.support.percent.PercentRelativeLayout>
 
         <LinearLayout
             android:id="@+id/setting_linear_gohome"
@@ -160,9 +160,9 @@
                 android:layout_height="wrap_content"
                 android:lineSpacingMultiplier="1.5"
                 android:textColor="@color/user_icon_default_white"
-                android:text="P模式(定位) , 使用GPS或视觉定位系统实现精准悬停;\nA模式(姿态),不使用GPS和视觉定位系统,不能精准悬停;\nF模式(功能),和P模式类似,可使用只能飞行."
+                android:text="P模式(定位) ,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          使用GPS或视觉定位系统实现精准悬停;\nA模式(姿态),不使用GPS和视觉定位系统,不能精准悬停;\nF模式(功能),和P模式类似,可使用只能飞行."
                 android:id="@+id/textView4" />
         </LinearLayout>
 
     </RelativeLayout>
-</com.zhy.android.percent.support.PercentLinearLayout>
+</LinearLayout>

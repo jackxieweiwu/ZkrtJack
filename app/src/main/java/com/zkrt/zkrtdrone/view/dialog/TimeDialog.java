@@ -2,6 +2,7 @@ package com.zkrt.zkrtdrone.view.dialog;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 
@@ -48,16 +49,7 @@ public class TimeDialog extends BaseDialog {
                 String textName = txt_id_remote.getText().toString();
                 if(textName.equals("取消")){
                     if(DJIModuleVerificationUtil.isRemoteControllerAvailable()){
-                        DJISampleApplication.getAircraftInstance().getRemoteController().
-                                exitRCPairingMode(new DJICommonCallbacks.DJICompletionCallback() {
-                                    @Override
-                                    public void onResult(DJIError djiError) {
-                                        if(djiError == null){
-                                            dissmiondialog(true);
-                                        }
-                                        Utils.setResultToToast(getContext(),djiError == null?"操作成功":djiError.getDescription());
-                                    }
-                                });
+                        canclent();
                     }
                 }else{
                     mContext.runOnUiThread(new Runnable() {
@@ -69,6 +61,18 @@ public class TimeDialog extends BaseDialog {
                 }
             }
         });
+    }
+
+    private void canclent(){
+        DJISampleApplication.getAircraftInstance().getRemoteController().
+                exitRCPairingMode(new DJICommonCallbacks.DJICompletionCallback() {
+                    @Override
+                    public void onResult(DJIError djiError) {
+                        if(djiError == null){
+                            dissmiondialog(true);
+                        }
+                    }
+                });
     }
 
     private void dissmiondialog(boolean bool){
@@ -83,48 +87,43 @@ public class TimeDialog extends BaseDialog {
             }
         });
     }
-
-    private int i=0;
-
     public void showDialog(){
         dissmiondialog(false);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if(DJIModuleVerificationUtil.isRemoteControllerAvailable()){
+                    DJISampleApplication.getAircraftInstance().getRemoteController().
+                            getRCToAircraftPairingState(new DJICommonCallbacks.DJICompletionCallbackWith<DJIRCToAircraftPairingState>() {
+                                @Override
+                                public void onSuccess(DJIRCToAircraftPairingState djircToAircraftPairingState) {
+                                    mContext.runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            if(djircToAircraftPairingState.value()==0){
+                                                Utils.setResultToToast(getContext(),"对频失败");
+                                                dismiss();
+                                                canclent();
+                                            }else if(djircToAircraftPairingState.value() == 1){
+                                                dismiss();
+                                                Utils.setResultToToast(getContext(),"对频中,但无法找到对象...");
+                                                canclent();
+                                            }else if(djircToAircraftPairingState.value() == 2){
+                                                dismiss();
+                                                Utils.setResultToToast(getContext(),"对频成功");
+                                            }
+                                        }
+                                    });
+                                }
 
-        if(DJIModuleVerificationUtil.isRemoteControllerAvailable() && i>=60){
-            DJISampleApplication.getAircraftInstance().getRemoteController().
-                    getRCToAircraftPairingState(new DJICommonCallbacks.DJICompletionCallbackWith<DJIRCToAircraftPairingState>() {
-                @Override
-                public void onSuccess(DJIRCToAircraftPairingState djircToAircraftPairingState) {
-                    mContext.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if(djircToAircraftPairingState.value()==0){
-                                txt_remote_dialog.setText("对频失败");
-                            }else if(djircToAircraftPairingState.value() == 1){
-                                dismiss();
-                            }else if(djircToAircraftPairingState.value() == 2){
-                                dismiss();
-                            }
-                        }
-                    });
+                                @Override
+                                public void onFailure(DJIError djiError) {
+
+                                }
+                            });
                 }
-
-                @Override
-                public void onFailure(DJIError djiError) {
-
-                }
-            });
-        }
-
-        for(int i=0;i<=60;i++){
-            try {
-                Thread.sleep(1000);
-                Thread.sleep(1000);
-                Thread.sleep(1000);
-                dissmiondialog(true);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
-        }
+        },60000);
     }
 
     @Override

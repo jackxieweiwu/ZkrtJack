@@ -1,10 +1,7 @@
 package com.zkrt.zkrtdrone.comassis.serialport_help;
 
-
-import com.zkrt.zkrtdrone.DJISampleApplication;
 import com.zkrt.zkrtdrone.bean.ComBean;
 import com.zkrt.zkrtdrone.until.DJIModuleVerificationUtil;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,7 +9,6 @@ import java.io.OutputStream;
 import java.security.InvalidParameterException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-
 import android_serialport_api.SerialPort;
 
 

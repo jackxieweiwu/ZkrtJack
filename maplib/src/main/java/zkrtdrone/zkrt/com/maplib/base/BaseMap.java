@@ -12,15 +12,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import android.gesture.GestureOverlayView;
-import android.os.CountDownTimer;
 import android.view.MotionEvent;
-
 import zkrtdrone.zkrt.com.jackmvpmoudle.base.BaseModel;
 import zkrtdrone.zkrt.com.jackmvpmoudle.base.BasePresenter;
 import zkrtdrone.zkrt.com.jackmvpmoudle.util.ToastUtil;
-import zkrtdrone.zkrt.com.maplib.App;
 import zkrtdrone.zkrt.com.maplib.BaseFragmentMap;
-import zkrtdrone.zkrt.com.maplib.bean.LonglatLog;
 import zkrtdrone.zkrt.com.maplib.bean.MissionLatLon;
 import zkrtdrone.zkrt.com.maplib.bean.PathConfig;
 import zkrtdrone.zkrt.com.maplib.until.MapHelp;
@@ -71,7 +67,16 @@ public class BaseMap<P extends BasePresenter, M extends BaseModel> extends BaseF
     @Override
     public void onMapClick(LatLng latLng) {
         if (isAdd == true && rightMenu == true){
-            markWaypoint(latLng,false);
+            if(wayMissionList.size()<99){
+                markWaypoint(latLng,false);
+            }else{
+               mActivity.runOnUiThread(new Runnable() {
+                   @Override
+                   public void run() {
+                       ToastUtil.show(mActivity,"航点数达到了最大数");
+                   }
+               });
+            }
         }else{
             mapOnclick();
         }
